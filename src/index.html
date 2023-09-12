@@ -4,20 +4,21 @@
     <meta charset="utf-8" />
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
-      <h1>BienvenidX a App</h1>
+      <h1 class="textobienvenida">BienvenidX a App</h1>
     </header>
     <main>
-      <h2>Encuentra cualquier Pokémon de las regiones de Kanto y Johto</h2>
-      <label for="buscar-por-nombre">
+      <h2 class="textobienvenida">Encuentra cualquier Pokémon de las regiones de Kanto y Johto</h2>
+      <label class="elegir" for="buscar-por-nombre">
         Elige los criterios de búsqueda para comenzar
         <input type="text" placeholder="busca por nombre de pokémon" />
       </label>
       <label for="boton-limpiar"><button data-testid="button-clear">Limpiar</button></label>
       <p>Filtrar por:</p>
-      <label for="tipo">
+      <label class="filtro" for="tipo">
         Tipo
         <select name="tipo" data-testid="select-filter" >
           <option value="tipo-fuego">Fuego</option>
@@ -29,7 +30,7 @@
           <option value="tipo-dragon">Dragón</option>
         </select>
         </label>
-        <label for="resisteA">
+      <label class="filtro" for="resisteA">
           Resiste a
         <select name="resiste-a" data-testid="select-filter">
           <option value="tipo-fuego">Fuego</option>
@@ -41,7 +42,7 @@
           <option value="tipo-dragon">Dragón</option>
         </select>
       </label>
-      <label for="debilA">
+      <label class="filtro" for="debilA">
         Débil a
         <select name="debil-a" data-testid="select-filter">
           <option value="tipo-fuego">Fuego</option>

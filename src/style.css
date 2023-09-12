@@ -1,0 +1,41 @@
+* {
+ background-color: #3B4CCA;
+ font-family: 'Titillium Web';
+}
+main {
+}
+
+h1, h2 {
+    color: #FFDE00;
+}
+input[type=text] {
+    background-color: #D9D9D9;
+    border: 2px solid #CC0000;
+    border-radius: 10px;
+}
+label[for=buscar-por-nombre], p {
+    color: #FFFFFF;
+}
+select {
+    border-radius: 10px;
+    border: 2px solid #CC0000;
+    background-color: #D9D9D9;
+}
+.filtro {
+    color:#17EF53;
+}
+button {
+    border-radius: 10px;
+    border: 2px solid #CC0000;
+    background-color: #D9D9D9; 
+}
+ul {
+    list-style: none;
+}
+.tarjeta {  
+    background-image: url("/imagenes/Fondo tarjeta panorámica.jpg");
+         
+}
+input[type=radio]{
+
+}
