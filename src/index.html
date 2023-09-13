@@ -1,94 +1,95 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <header>
-      <h1>BienvenidX a App</h1>
-    </header>
-    <main>
-      <h2>Encuentra cualquier Pokémon de las regiones de Kanto y Johto</h2>
-      <label class="elegir" for="buscar-por-nombre">
-        Elige los criterios de búsqueda para comenzar
-        <input type="text" placeholder="busca por nombre de pokémon" />
-      </label>
-      <label for="boton-limpiar"><button data-testid="button-clear">Limpiar</button></label>
-      <p>Filtrar por:</p>
-      <label class="filtro" for="tipo">
-        Tipo
-        <select name="tipo" data-testid="select-filter" >
-          <option value="tipo-fuego">Fuego</option>
-          <option value="tipo-planta">Planta</option>
-          <option value="tipo-agua">Agua</option>
-          <option value="tipo-hielo">Hielo</option>
-          <option value="tipo-acero">Acero</option>
-          <option value="tipo-electrico">Eléctrico</option>
-          <option value="tipo-dragon">Dragón</option>
-        </select>
-        </label>
-      <label class="filtro" for="resisteA">
-          Resiste a
-        <select name="resiste-a" data-testid="select-filter">
-          <option value="tipo-fuego">Fuego</option>
-          <option value="tipo-planta">Planta</option>
-          <option value="tipo-agua">Agua</option>
-          <option value="tipo-hielo">Hielo</option>
-          <option value="tipo-acero">Acero</option>
-          <option value="tipo-electrico">Eléctrico</option>
-          <option value="tipo-dragon">Dragón</option>
-        </select>
-      </label>
-      <label class="filtro" for="debilA">
-        Débil a
-        <select name="debil-a" data-testid="select-filter">
-          <option value="tipo-fuego">Fuego</option>
-          <option value="tipo-planta">Planta</option>
-          <option value="tipo-agua">Agua</option>
-          <option value="tipo-hielo">Hielo</option>
-          <option value="tipo-acero">Acero</option>
-          <option value="tipo-electrico">Eléctrico</option>
-          <option value="tipo-dragon">Dragón</option>
-        </select>
-      </label>
-      <label>   
-        <select name="ordenar-por" data-testid="select-sort">
-         <option value="tasaAparicion">Tasa de aparición</option>
-         <option value="costoEvolucion">Costo de evolución</option>     
-       </select>
-      </label>
-      <label for="cambiar-orden-asc"><input type="radio" name="sort-order" value="asc"/>Ascendente</label>
-      <label for="cambiar-orden-desc"><input type="radio" name="sort-order" value="desc"/>Descendente</label>
-      <section id="root"> 
-        <ul class="contenedor">
-          <li class="tarjeta">
-            <dl itemscope itemtype="pokemon">
-              <dd itemprop="img-pokemon"></dd>
-              <dd itemprop="name">Squirtle</dd>
-              <dt>Tipo:</dt>
-              <dd itemprop="type">agua</dd>
-              <dt>Región:</dt>
-              <dd itemprop="name-region">Kanto</dd>
-              <dt>Fortaleza:</dt>
-              <dd itemprop="resistant"></dd>
-              <dt>Debilidades:</dt>
-              <dd itemprop="weaknesses"></dd>
-              <dd itemprop="img-evolucion"></dd>
-              <dd itemprop="evoluciones"></dd>
-              <dd itemprop="img-evolucion"></dd>
-              <dd itemprop="evoluciones"></dd>
-              <dd itemprop="candy-cost"></dd>
-              <dt>Tasa de aparición:</dt>
-              <dd itemprop="spawn-chance"></dd>
-            </dl>            
-          </li>
-        </ul>
-      </section>
-    </main>
-    <footer></footer>
-    <script src="main.js" type="module"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1>BienvenidX a App</h1>
+  </header>
+  <main>
+    <h2>Encuentra cualquier Pokémon de las regiones de Kanto y Johto</h2>
+    <label class="elegir" for="buscar-por-nombre">
+      Elige los criterios de búsqueda para comenzar
+      <input type="text" placeholder="busca por nombre de pokémon" />
+    </label>
+    <label for="boton-limpiar"><button data-testid="button-clear">Limpiar</button></label>
+    <p>Filtrar por:</p>
+    <label class="filtro" for="tipo">
+      Tipo
+      <select name="tipo" data-testid="select-filter">
+        <option value="tipo-fuego">Fuego</option>
+        <option value="tipo-planta">Planta</option>
+        <option value="tipo-agua">Agua</option>
+        <option value="tipo-hielo">Hielo</option>
+        <option value="tipo-acero">Acero</option>
+        <option value="tipo-electrico">Eléctrico</option>
+        <option value="tipo-dragon">Dragón</option>
+      </select>
+    </label>
+    <label class="filtro" for="resisteA">
+      Resiste a
+      <select name="resiste-a" data-testid="select-filter">
+        <option value="tipo-fuego">Fuego</option>
+        <option value="tipo-planta">Planta</option>
+        <option value="tipo-agua">Agua</option>
+        <option value="tipo-hielo">Hielo</option>
+        <option value="tipo-acero">Acero</option>
+        <option value="tipo-electrico">Eléctrico</option>
+        <option value="tipo-dragon">Dragón</option>
+      </select>
+    </label>
+    <label class="filtro" for="debilA">
+      Débil a
+      <select name="debil-a" data-testid="select-filter">
+        <option value="tipo-fuego">Fuego</option>
+        <option value="tipo-planta">Planta</option>
+        <option value="tipo-agua">Agua</option>
+        <option value="tipo-hielo">Hielo</option>
+        <option value="tipo-acero">Acero</option>
+        <option value="tipo-electrico">Eléctrico</option>
+        <option value="tipo-dragon">Dragón</option>
+      </select>
+    </label>
+    <label>
+      <select name="ordenar-por" data-testid="select-sort">
+        <option value="tasaAparicion">Tasa de aparición</option>
+        <option value="costoEvolucion">Costo de evolución</option>
+      </select>
+    </label>
+    <label for="cambiar-orden-asc"><input type="radio" name="sort-order" value="asc" />Ascendente</label>
+    <label for="cambiar-orden-desc"><input type="radio" name="sort-order" value="desc" />Descendente</label>
+  </main>
+  <section id="root">
+    <ul class="contenedor">
+      <li class="tarjeta" itemscope itemtype="pokemon">
+        <dd class="datos" itemprop="img-pokemon"></dd>
+        <dd class="datos" itemprop="name">Squirtle</dd>
+        <dt class="datos">Tipo:</dt>
+        <dd class="datos" itemprop="type">agua</dd>
+        <dt class="datos">Región:</dt>
+        <dd class="datos" itemprop="name-region">Kanto</dd>
+        <dt class="datos">Fortaleza:</dt>
+        <dd class="datos" itemprop="resistant"></dd>
+        <dt class="datos">Debilidades:</dt>
+        <dd class="datos" itemprop="weaknesses"></dd>
+        <dd class="datos" itemprop="img-evolucion"></dd>
+        <dd class="datos" itemprop="evoluciones"></dd>
+        <dd class="datos" itemprop="img-evolucion"></dd>
+        <dd class="datos" itemprop="evoluciones"></dd>
+        <dd class="datos" itemprop="candy-cost"></dd>
+        <dt class="datos">Tasa de aparición:</dt>
+        <dd class="datos" itemprop="spawn-chance"></dd>
+      </li>
+    </ul>
+  </section>
+  <footer></footer>
+  <script src="main.js" type="module"></script>
+</body>
+
 </html>
