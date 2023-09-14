@@ -83,7 +83,8 @@ describe('Uso de HTML semántico', () => {
     });
 
     it('<label> existe', () => {
-      const label = document.querySelectorAll('label');
+      // const label = document.querySelectorAll('label');
+      // console.log('************************************** ,', label);
       Array.from(select).forEach((element) => {
         const previousFor = element.previousElementSibling.getAttribute('for');
         expect(previousFor).toBe(element.id);
