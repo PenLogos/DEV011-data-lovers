@@ -1,6 +1,9 @@
 * {
- background-color: #3B4CCA;
- font-family: 'Titillium Web';
+  font-family: 'Titillium Web';
+  
+}
+body{
+  background-color: #3B4CCA;
 }
 main {
 }
@@ -32,23 +35,16 @@ button {
 ul {
     list-style: none;
 }
-.contenedor {  
-    width: 300px;
-    height: 300px;
-    background-color: #CC0000;
-    background-image: url("/imagenes/Fondo tarjeta panorámica.jpg");
-}
 .tarjeta {
-    width: 0;
-    height: 0;
-    border: 0px;
-    background: 0px;
-    padding: 0;
-    margin: 0px;
-    position: absolute;
-    left: 0%
+    width: 548px;
+    height: 308px;
+    border-radius: 20px;
+    background-image: url('imagenes/Fondo\ tarjeta\ panorámica.jpg');
+    background-size: cover;
 }
+
 .datos {
+    
 }
 input[type=radio]{
 
