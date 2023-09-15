@@ -35,7 +35,7 @@ button {
 ul {
     list-style: none;
 }
-.tarjeta {
+li {
     width: 548px;
     height: 308px;
     border-radius: 20px;
