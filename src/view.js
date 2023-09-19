@@ -24,7 +24,7 @@ export const renderItems = (pokemon) => {
   const pokemonRegion = document.createElement("dd");
   li.appendChild(pokemonRegion);
   pokemonRegion.setAttribute("itemprop", "name-region");
-  pokemonRegion.innerHTML = (`Región: ${pokemon.generation.name}`);
+  pokemonRegion.innerHTML = (`Región: ${pokemon.generation.name}`);;
   const pokemonResistant = document.createElement("dd");
   li.appendChild(pokemonResistant);
   pokemonResistant.setAttribute("itemprop", "resistant");
