@@ -1,4 +1,4 @@
-//import { typeFilter } from './dataFunctions.js';
+import { typeFilter } from './dataFunctions.js';
 import { renderItems } from "./view.js";
 
 import data from "./data/pokemon/pokemon.js";
@@ -49,6 +49,7 @@ function createOption(value) {
   const optionType = document.createElement("option");
   selectType.appendChild(optionType);
   optionType.innerHTML = value;
+  optionType.setAttribute("class", "type-filter");
   const optionResistant = document.createElement("option");
   selectResistant.appendChild(optionResistant );
   optionResistant.innerHTML = value;
@@ -59,16 +60,10 @@ function createOption(value) {
 
 cleanArrayTypeValues.forEach(createOption);
 
-console.log(cleanArrayTypeValues);
-
-// const optionType = document.createElement("option");
-// selectType.appendChild(optionType);
-// labelFilterType.setAttribute('value', '');
-
-// for (let i = 0; i > data.pokemon.length; i++) {
-//     if (i === type) {
-//         let filters =
-//     }
-// }
-
 selectPokemon.forEach(renderItems);
+
+const selectTypeOption = document.querySelectorAll(".type-filter");
+selectTypeOption.forEach(option => {option.addEventListener("click", typeFilter() {
+   console.log("Hola")
+})});
+
