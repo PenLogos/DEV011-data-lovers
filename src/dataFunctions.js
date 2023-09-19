@@ -1,8 +1,11 @@
 // estas funciones son de ejemplo
 
-export const typeFilter = (data, filterby, value) => {
+export const typeFilter = (data) => {
   
-  return 
+  const optionPokemonTypeSelected = data.filter(type => type === type.grass); 
+
+ 
+
 };
 
 export const anotherExample = () => {
