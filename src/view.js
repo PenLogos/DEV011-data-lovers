@@ -1,6 +1,6 @@
 // estas funciones son de ejemplo
 
-import data from './data/pokemon/pokemon.js';
+
 
 const cardContainer = document.querySelector(".contenedor");
 export const renderItems = (pokemon) => {
@@ -49,20 +49,22 @@ export const renderItems = (pokemon) => {
   const evolution1 = document.createElement("dd");
   li.appendChild(evolution1);
   evolution1.setAttribute("itemprop", "evoluciones");
-  if (pokemon.evolution['next-evolution'][0]['next-evolution']) {
+  if (Object.entries(pokemon.evolution).includes('next-evolution')) {
     evolution1.innerHTML = 'evolución 1: ' + pokemon.evolution['next-evolution'][0].name
+    pokemon.evolution['next-evolution'][1]? evolution2.innerHTML = 'evolución 2: ' + pokemon.evolution['next-evolution'][0]['next-evolution'][1].name: ''
   }
-  else if (pokemon.evolution['next-evolution'] && pokemon.evolution['prev-evolution']) {
+  if (pokemon.evolution['next-evolution'] && pokemon.evolution['prev-evolution']) {
     evolution1.innerHTML = 'preevolución: ' + pokemon.evolution['prev-evolution'][0].name
   }
-  else if (pokemon.evolution['prev-evolution'][0]['prev-evolution']) {
+  if (Object.entries(pokemon.evolution).includes('prev-evolution')) {
+    console.log('se cumple la condición')
     evolution1.innerHTML = 'preevolución 1 ' + pokemon.evolution['prev-evolution'][0]['prev-evolution'][0].name
   }
   
   const pokemonCandycost1 = document.createElement("dd");
   li.appendChild(pokemonCandycost1);
   pokemonCandycost1.setAttribute("itemprop", "candy-cost");
-  if (pokemon.evolution['next-evolution'][0]['next-evolution']) {
+  if (Object.entries(pokemon.evolution).includes('next-evolution')) {
     pokemonCandycost1.innerHTML = 'x' + pokemon.evolution['next-evolution'][0]['candy-cost']
   }
 
@@ -73,14 +75,13 @@ export const renderItems = (pokemon) => {
   const evolution2 = document.createElement("dd");
   li.appendChild(evolution2);
   evolution2.setAttribute("itemprop", "evoluciones");
-  if (pokemon.evolution['next-evolution'][0]['next-evolution']) {
-    evolution2.innerHTML = 'evolución 2: ' + pokemon.evolution['next-evolution'][0]['next-evolution'][0].name
-  }
-  else if (pokemon.evolution['prev-evolution'] && pokemon.evolution['next-evolution']) {
+  // if (Object.entries(pokemon.evolution).includes('next-evolution')&&pokemon.evolution['next-evolution'][0]['next-evolution'].length>1) {
+  //   evolution2.innerHTML = 'evolución 2: ' + pokemon.evolution['next-evolution'][0]['next-evolution'][1].name
+  // }
+  if (pokemon.evolution['prev-evolution'] && pokemon.evolution['next-evolution']) {
     evolution2.innerHTML = 'evolución: ' + pokemon.evolution['next-evolution'][0].name
   }
-  else if (pokemon.evolution['prev-evolution'][0]['prev-evolution']) {
-    console.log('se cumple la condición')
+ if (Object.entries(pokemon.evolution).includes('prev-evolution')) {
     evolution2.innerHTML = 'preevolución 2: ' + pokemon.evolution['prev-evolution'][0].name
   }
 
