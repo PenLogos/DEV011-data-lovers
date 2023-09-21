@@ -38,7 +38,7 @@ export const renderItems = (pokemon) => {
   // evolutionImage1.setAttribute("itemprop", "img-evolution");
   // const evolution1 = document.createElement("dd");
   // li.appendChild(evolution1);
-  // evolution1.setAttribute("itemprop", "evoluciones");
+  // evolution1.setAttribute("itemprop", "evolucion-1");
   // if (pokemon.evolution['next-evolution'][0]['next-evolution']) {
   //   evolution1.innerHTML = (`evolución 1: ${pokemon.evolution['next-evolution'][0].name}`)
   // }
@@ -51,7 +51,7 @@ export const renderItems = (pokemon) => {
   
   // const pokemonCandycost1 = document.createElement("dd");
   // li.appendChild(pokemonCandycost1);
-  // pokemonCandycost1.setAttribute("itemprop", "candy-cost");
+  // pokemonCandycost1.setAttribute("itemprop", "candy-cost-1");
   // if (pokemon.evolution['next-evolution'][0]['next-evolution']) {
   //   pokemonCandycost1.innerHTML = (`x${pokemon.evolution['next-evolution'][0]['candy-cost']}`)
   // }
@@ -61,7 +61,7 @@ export const renderItems = (pokemon) => {
   
   // const evolution2 = document.createElement("dd");
   // li.appendChild(evolution2);
-  // evolution2.setAttribute("itemprop", "evoluciones");
+  // evolution2.setAttribute("itemprop", "evolucion-2");
   // if (pokemon.evolution['next-evolution'][0]['next-evolution']) {
   //   evolution2.innerHTML = (`evolución 2: ${pokemon.evolution['next-evolution'][0]['next-evolution'][0].name}`)
   // }
@@ -72,12 +72,12 @@ export const renderItems = (pokemon) => {
   //   console.log('se cumple la condición')
   //   evolution2.innerHTML = (`preevolución 2: ${pokemon.evolution['prev-evolution'][0].name}`)
   // }
-  const pokemonCandycost2 = document.createElement("dd");
-  li.appendChild(pokemonCandycost2);
-  pokemonCandycost2.setAttribute("itemprop", "candy-cost");
-  if (pokemon.evolution['prev-evolution'] && pokemon.evolution['next-evolution']) {
-    pokemonCandycost2.innerHTML = (`x${pokemon.evolution['next-evolution'][0]['candy-cost']}`)
-  }
+  // const pokemonCandycost2 = document.createElement("dd");
+  // li.appendChild(pokemonCandycost2);
+  // pokemonCandycost2.setAttribute("itemprop", "candy-cost-2");
+  // if (pokemon.evolution['prev-evolution'] && pokemon.evolution['next-evolution']) {
+  //   pokemonCandycost2.innerHTML = (`x${pokemon.evolution['next-evolution'][0]['candy-cost']}`)
+  // }
   const pokemonSpawnChance = document.createElement("dd");
   li.appendChild(pokemonSpawnChance);
   pokemonSpawnChance.setAttribute("itemprop", "spawn-chance");
