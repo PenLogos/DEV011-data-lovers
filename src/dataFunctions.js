@@ -3,7 +3,7 @@
 export const typeFilter = (data, filterBy, value) => {
   //const optionPokemonTypeSelected = data.filter(type => type === type.grass); 
   const filter = data.filter((element)=>{
-    return element[filterBy].includes === value
+    return element[filterBy] === value
   })
   return filter;
   // console.log("Hola");
