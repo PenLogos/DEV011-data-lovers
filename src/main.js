@@ -3,7 +3,7 @@ import { renderItems } from "./view.js";
 
 import data from "./data/pokemon/pokemon.js";
 
-// console.log(data.pokemon)
+console.log(data.pokemon)
 const selectPokemon = data.pokemon;
 const main = document.querySelector(".filters");
 
