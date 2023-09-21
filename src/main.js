@@ -62,8 +62,8 @@ cleanArrayTypeValues.forEach(createOption);
 
 selectPokemon.forEach(renderItems);
 
-const selectTypeOption = document.querySelectorAll(".type-filter");
-selectTypeOption.forEach(option => {option.addEventListener("click", typeFilter() {
-   console.log("Hola")
-})});
+// const selectTypeOption = document.querySelectorAll(".type-filter");
+// selectTypeOption.forEach(option => {option.addEventListener("click", typeFilter() {
+//    console.log("Hola")
+// })});
 
