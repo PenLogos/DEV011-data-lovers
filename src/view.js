@@ -6,16 +6,16 @@ export const renderItems = (pokemon) => {
   li.setAttribute("itemscope", "");
   li.setAttribute("itemtype", "pokemon");
    
-  const pokemonImage = document.createElement("img");
-  li.appendChild(pokemonImage);
-  pokemonImage.setAttribute("itemprop", "img-pokemon");
-  pokemonImage.src = pokemon.img;
-  
   const pokemonName = document.createElement("dd");
   li.appendChild(pokemonName);
   pokemonName.setAttribute("itemprop", "name");
   pokemonName.innerHTML = pokemon.name;
   
+  const pokemonImage = document.createElement("img");
+  li.appendChild(pokemonImage);
+  pokemonImage.setAttribute("itemprop", "img-pokemon");
+  pokemonImage.src = pokemon.img;
+   
   const pokemonType = document.createElement("dd");
   li.appendChild(pokemonType);
   pokemonType.setAttribute("itemprop", "type");

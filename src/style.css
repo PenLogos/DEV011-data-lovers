@@ -36,6 +36,11 @@ ul {
     list-style: none;
 }
 li {
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-template-rows:repeat(2, )
+    */
     width: 548px;
     height: 308px;
     border-radius: 20px;
@@ -43,9 +48,49 @@ li {
     background-size: cover;
 }
 
-.datos {
+img[itemprop=img-pokemon]{
+
+}
+
+dd[itemprop=name]{
+    text-align: center;
+    font-size: 200%;
+    padding: 5% auto;
+
+}
+
+dd[itemprop=name]:first-letter {
+    text-transform: uppercase;
+}
+
+dd[itemprop=type]{
+
+}
+
+dd[itemprop=name-region]{
     
 }
+
+dd[itemprop=resistant]{
+    
+}
+
+dd[itemprop=weaknesses]{
+    
+}
+
+dd[itemprop=evoluciones]{
+    
+}
+
+dd[itemprop=candy-cost]{
+    
+}
+
+dd[itemprop=spawn-chance]{
+    
+}
+
 input[type=radio]{
 
 }
