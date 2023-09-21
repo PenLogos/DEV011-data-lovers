@@ -24,7 +24,19 @@
         <option value="tasaAparicion">Tasa de aparición</option>
         <option value="costoEvolucion">Costo de evolución</option>
       </select>
-      <label for="cambiar-orden-asc"><input type="radio" name="sort-order" value="asc" />Ascendente</label>
+    <label class="filter" for="type">
+      Tipo
+      <select name="type" data-testid="select-filter" id="type"></select>
+    </label>
+    <label class="filter" for="resistant-to">
+      Resiste a
+      <select name="resistant-to" data-testid="select-filter" id="resistant-to"></select>
+    </label>
+    <label class="filter" for="weak-to">
+      Débil a
+      <select name="weak-to" data-testid="select-filter" id="weak-to"></select>
+    </label>
+    <label for="cambiar-orden-asc"><input type="radio" name="sort-order" value="asc" />Ascendente</label>
     <label for="cambiar-orden-desc"><input type="radio" name="sort-order" value="desc" />Descendente</label>  
   </main>
   <section id="root">
