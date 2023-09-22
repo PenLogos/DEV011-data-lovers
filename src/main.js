@@ -10,6 +10,7 @@ const selectFilterType = document.querySelector("select[name=type]");
 const selectFilterResistant = document.querySelector("select[name=resistant-to]");
 const selectFilterWeakness = document.querySelector("select[name=weak-to]");
 const selectFilterName = document.querySelector("input[type=text]");
+const cardContainer = document.querySelector(".contenedor");
 
 const arrayTypeValues = Object.values(selectPokemon).flatMap(
   (item) => item.type
@@ -36,19 +37,47 @@ selectPokemon.forEach(renderItems);
 
 cleanArrayTypeValues.forEach(createOption);
 
+const filters = {
+  type:"",
+  resistant:"",
+  weakness:"",
+};
+
 selectFilterType.addEventListener("change", ()=> { 
-  const resultFilterType = typeFilter(selectPokemon, "type", selectFilterType.value)
-  console.log(resultFilterType);
+  filters.type = selectFilterType.value;
+  updateFilteredResults();
+  // selectFilterName.textContent= "busca por nombre de pokémon";
 });
+
 selectFilterResistant.addEventListener("change", ()=> { 
-  const resultFilterResistant = typeFilter(selectPokemon, "resistant", selectFilterResistant.value)
-  console.log(resultFilterResistant);
+  filters.resistant= selectFilterResistant.value;
+  updateFilteredResults();
 });
+
 selectFilterWeakness.addEventListener("change", ()=> { 
-  const resultFilterWeakness = typeFilter(selectPokemon, "weaknesses", selectFilterWeakness.value)
-  console.log(resultFilterWeakness);
+  filters.weakness= selectFilterWeakness.value;
+  updateFilteredResults();
 });
+
+function updateFilteredResults(){
+  const filteredResults = applyFilters(data.pokemon);
+  cardContainer.innerHTML="";
+  filteredResults.forEach(renderItems);
+  selectFilterName.value = "";
+}
+
+function applyFilters(pokemonList) {
+  return pokemonList.filter((pokemon) => {
+    const typeFilter = filters.type === "" || pokemon.type.includes(filters.type);
+    const resistantFilter = filters.resistant === "" || pokemon.resistant.includes(filters.resistant);
+    const weaknessFilter = filters.weakness === "" || pokemon.weaknesses.includes(filters.weakness);
+    return typeFilter && resistantFilter && weaknessFilter;
+  });
+}
+
 selectFilterName.addEventListener("change", ()=> { 
-  const resultFilterName = typeFilter(selectPokemon, "name", selectFilterName.value)
+  const resultFilterName = typeFilter(selectPokemon, "name", selectFilterName.value);
+  cardContainer.innerHTML="";
+  resultFilterName.forEach(renderItems);
   console.log(resultFilterName);
 });
