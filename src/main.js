@@ -1,5 +1,6 @@
 import { typeFilter } from './dataFunctions.js';
 import { renderItems } from "./view.js";
+import { anotherExample } from './dataFunctions.js';
 
 import data from "./data/pokemon/pokemon.js";
 
@@ -8,6 +9,7 @@ const selectPokemon = data.pokemon;
 const selectFilterType = document.querySelector("select[name=type]");
 const selectFilterResistant = document.querySelector("select[name=resistant-to]");
 const selectFilterWeakness = document.querySelector("select[name=weak-to]");
+const selectFilterName = document.querySelector("input[type=text]");
 
 const arrayTypeValues = Object.values(selectPokemon).flatMap(
   (item) => item.type
@@ -30,14 +32,23 @@ function createOption(value) {
   optionWeakness.setAttribute("value", optionWeakness.value);
 }
 
-cleanArrayTypeValues.forEach(createOption);
-
 selectPokemon.forEach(renderItems);
 
+cleanArrayTypeValues.forEach(createOption);
+
 selectFilterType.addEventListener("change", ()=> { 
-  // console.log(selectFilterType.value);
-  // console.log(selectPokemon);
-  // console.log(data.pokemon[0].type);
-  const resultFilter = typeFilter(selectPokemon, "type", selectFilterType.value)
-  console.log(resultFilter);
+  const resultFilterType = typeFilter(selectPokemon, "type", selectFilterType.value)
+  console.log(resultFilterType);
+});
+selectFilterResistant.addEventListener("change", ()=> { 
+  const resultFilterResistant = typeFilter(selectPokemon, "resistant", selectFilterResistant.value)
+  console.log(resultFilterResistant);
+});
+selectFilterWeakness.addEventListener("change", ()=> { 
+  const resultFilterWeakness = typeFilter(selectPokemon, "weaknesses", selectFilterWeakness.value)
+  console.log(resultFilterWeakness);
+});
+selectFilterName.addEventListener("change", ()=> { 
+  const resultFilterName = typeFilter(selectPokemon, "name", selectFilterName.value)
+  console.log(resultFilterName);
 });
