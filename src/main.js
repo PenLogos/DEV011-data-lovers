@@ -1,15 +1,15 @@
-import { typeFilter } from './dataFunctions.js';
-import { renderItems } from "./view.js";
-import { anotherExample } from './dataFunctions.js';
+import { dataPokemonFilter } from './dataFunctions.js';
+import { renderItems } from './view.js';
 
 import data from "./data/pokemon/pokemon.js";
 
-// console.log(data.pokemon)
+// Lista de selectores
 const selectPokemon = data.pokemon;
 const selectFilterType = document.querySelector("select[name=type]");
 const selectFilterResistant = document.querySelector("select[name=resistant-to]");
 const selectFilterWeakness = document.querySelector("select[name=weak-to]");
 const selectFilterName = document.querySelector("input[type=text]");
+const cardContainer = document.querySelector(".contenedor")
 
 const arrayTypeValues = Object.values(selectPokemon).flatMap(
   (item) => item.type
@@ -37,18 +37,28 @@ selectPokemon.forEach(renderItems);
 cleanArrayTypeValues.forEach(createOption);
 
 selectFilterType.addEventListener("change", ()=> { 
-  const resultFilterType = typeFilter(selectPokemon, "type", selectFilterType.value)
+  const resultFilterType = dataPokemonFilter(selectPokemon, "type", selectFilterType.value)
+  cardContainer.innerHTML = ''
+ resultFilterType.forEach(renderItems);
   console.log(resultFilterType);
+  return resultFilterType
 });
 selectFilterResistant.addEventListener("change", ()=> { 
-  const resultFilterResistant = typeFilter(selectPokemon, "resistant", selectFilterResistant.value)
+  const resultFilterResistant = dataPokemonFilter(selectPokemon, "resistant", selectFilterResistant.value)
+  cardContainer.innerHTML = ''
+  resultFilterResistant.forEach(renderItems);
   console.log(resultFilterResistant);
 });
 selectFilterWeakness.addEventListener("change", ()=> { 
-  const resultFilterWeakness = typeFilter(selectPokemon, "weaknesses", selectFilterWeakness.value)
+  const resultFilterWeakness = dataPokemonFilter(selectPokemon, "weaknesses", selectFilterWeakness.value)
+  cardContainer.innerHTML = ''
+  resultFilterWeakness.forEach(renderItems);
   console.log(resultFilterWeakness);
 });
 selectFilterName.addEventListener("change", ()=> { 
-  const resultFilterName = typeFilter(selectPokemon, "name", selectFilterName.value)
+  const resultFilterName = dataPokemonFilter(selectPokemon, "name", selectFilterName.value)
+  cardContainer.innerHTML = ''
+  resultFilterName.forEach(renderItems);
   console.log(resultFilterName);
 });
+
