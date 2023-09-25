@@ -5,7 +5,7 @@ export const renderItems = (pokemon) => {
   cardContainer.appendChild(li);
   li.setAttribute("itemscope", "");
   li.setAttribute("itemtype", "pokemon");
-   
+ 
   const pokemonName = document.createElement("dd");
   li.appendChild(pokemonName);
   pokemonName.setAttribute("itemprop", "name");
@@ -21,6 +21,16 @@ export const renderItems = (pokemon) => {
   pokemonType.setAttribute("itemprop", "type");
   pokemonType.innerHTML = (`Tipo: ${pokemon.type}`);
   const pokemonRegion = document.createElement("dd");
+
+  const types = pokemon.type;
+  types.forEach((type, index) => {
+    const typeImage = document.createElement("img");
+    const imageClass=`type-image-${index}`;
+    typeImage .classList.add(imageClass);
+    typeImage.src = `imagenes/Img-pokemonType/${type}.png`;
+    li.appendChild(typeImage);
+  })
+
   li.appendChild(pokemonRegion);
   pokemonRegion.setAttribute("itemprop", "name-region");
   pokemonRegion.innerHTML = (`Región: ${pokemon.generation.name}`);
