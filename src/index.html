@@ -1,51 +1,64 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Data Lovers</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>Data Lovers</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
-</head>
-
-<body>
-  <header>
-    <h1>BienvenidX a App</h1>
-  </header>
-  <main class="filters">
-    <h2>Encuentra cualquier Pokémon de las regiones de Kanto y Johto</h2>
-   <label class="choose" for="search-by-name">
-      Elige los criterios de búsqueda para comenzar
-      <input type="text" placeholder="busca por nombre de pokémon" />
-    </label>
-    <label for="boton-limpiar"><button data-testid="button-clear">Limpiar</button></label>
-    <p>Filtrar por:</p>
+  <body>
+    <header>
+      <h1>BienvenidX a App</h1>
+    </header>
+    <main class="filters">
+      <h2>Encuentra cualquier Pokémon de las regiones de Kanto y Johto</h2>
+      <label class="choose" for="search-by-name">
+        Elige los criterios de búsqueda para comenzar
+        <input type="text" placeholder="busca por nombre de pokémon" />
+      </label>
+      <label for="boton-limpiar"
+        ><button data-testid="button-clear">Limpiar</button></label
+      >
+      <p>Filtrar por:</p>
       <select name="ordenar-por" data-testid="select-sort">
         <option value="tasaAparicion">Tasa de aparición</option>
         <option value="costoEvolucion">Costo de evolución</option>
       </select>
-    <label class="filter" for="type">
-      Tipo
-      <select name="type" data-testid="select-filter" id="type"></select>
-    </label>
-    <label class="filter" for="resistant-to">
-      Resiste a
-      <select name="resistant-to" data-testid="select-filter" id="resistant-to"></select>
-    </label>
-    <label class="filter" for="weak-to">
-      Débil a
-      <select name="weak-to" data-testid="select-filter" id="weak-to"></select>
-    </label>
-    <label for="cambiar-orden-asc"><input type="radio" name="sort-order" value="asc" />Ascendente</label>
-    <label for="cambiar-orden-desc"><input type="radio" name="sort-order" value="desc" />Descendente</label>  
-  </main>
-  <section id="root">
-    <ul class="contenedor">
-     
-    </ul>
-  </section>
-  <footer></footer>
-  <script src="main.js" type="module"></script>
-</body>
-
+      <label class="filter" for="type">
+        Tipo
+        <select name="type" data-testid="select-filter" id="type"></select>
+      </label>
+      <label class="filter" for="resistant-to">
+        Resiste a
+        <select
+          name="resistant-to"
+          data-testid="select-filter"
+          id="resistant-to"
+        ></select>
+      </label>
+      <label class="filter" for="weak-to">
+        Débil a
+        <select
+          name="weak-to"
+          data-testid="select-filter"
+          id="weak-to"
+        ></select>
+      </label>
+      <label for="cambiar-orden-asc"
+        ><input type="radio" name="sort-order" value="asc" />Ascendente</label
+      >
+      <label for="cambiar-orden-desc"
+        ><input type="radio" name="sort-order" value="desc" />Descendente</label
+      >
+    </main>
+    <section id="root">
+      <ul class="contenedor"></ul>
+    </section>
+    <footer></footer>
+    <script src="main.js" type="module"></script>
+  </body>
 </html>

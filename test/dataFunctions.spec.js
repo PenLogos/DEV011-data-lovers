@@ -1,18 +1,17 @@
-import { example, anotherExample } from '../src/dataFunctions.js';
-import { data as fakeData } from './data.js';
+import { dataFilter } from "../src/dataFunctions.js";
+import { data as fakeData } from "./data.js";
+import { dataGrass } from "./data.js";
 
-console.log(fakeData);
-
-describe('example', () => {
-
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
+describe("dataFilter", () => {
+  it('debería retornar bulbasaur, ivysaur y venasaur para la selección "grass"', () => {
+    const dataFiltered = dataFilter(fakeData, "type", "grass");
+    expect(dataFiltered).toStrictEqual(dataGrass)
   });
 });
 
-describe('anotherExample', () => {
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
+describe("dataFilter", () => {
+  it('debería retornar un array vacío', () => {
+    const dataFiltered = dataFilter(fakeData, "type", "aklsdjalsd");
+    expect(dataFiltered).toStrictEqual([])
   });
 });
