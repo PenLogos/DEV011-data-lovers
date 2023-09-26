@@ -1,14 +1,39 @@
 * {
   font-family: "Titillium Web";
+  margin: 0;
 }
 
 body {
-  background-color: #3b4cca;
+  background-color: rgb(59, 76, 202);
 }
-
+header {
+  background-image: url("imagenes/headerImage.jpg");
+  /* background-size: cover; */
+  height: 7em;
+  position: relative;
+}
+header,
 main {
+  text-align: center;
+  margin: 0 0 1% 0;
 }
 
+h1 {
+  background-color: rgba(59, 76, 202, 0.7);
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  height: 60%;
+  width: 30%;
+  font-size: 250%;
+}
+
+/* .choose{
+  margin: 0 1%;
+} */
+h2, label, p{
+  margin: 1% 1%;
+}
 h1,
 h2 {
   color: #ffde00;
@@ -18,13 +43,27 @@ input[type="text"] {
   background-color: #d9d9d9;
   border: 2px solid #cc0000;
   border-radius: 10px;
+  margin: 0, 5%;
 }
-
-label[for="buscar-por-nombre"],
-p {
+label {
   color: #ffffff;
 }
 
+p {
+  color: #ffffff;
+  text-align: left;
+  margin-left: 16%;
+  margin-right: 80%;
+  width: 30%;
+}
+@media (max-width: 1280px) {
+  p {
+    text-align: left;
+    margin-left: 5%;
+    margin-right: 40%;
+    width: 30%;
+  }
+ }
 select {
   border-radius: 10px;
   border: 2px solid #cc0000;
@@ -43,9 +82,14 @@ button {
 
 ul {
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
 }
 
-li {
+.cards {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-rows: 14% 10% 14% 14% 20% 15% 10%;
@@ -54,6 +98,7 @@ li {
   border-radius: 20px;
   background-image: url("imagenes/Fondo\ tarjeta\ panorámica.jpg");
   background-size: cover;
+  margin: 1%;
 }
 
 img[itemprop="img-pokemon"] {
@@ -83,6 +128,26 @@ dd[itemprop="type"] {
   grid-row-start: 2;
   grid-row-end: 2;
   font-size: 150%;
+}
+
+.type-image-0 {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  justify-self: end;
+  height: 120%;
+  padding: 0;
+}
+
+.type-image-1 {
+  grid-column-start: 4;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  justify-self: start;
+  height: 120%;
+  padding: 0;
 }
 
 dd[itemprop="name-region"] {

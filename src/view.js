@@ -5,6 +5,7 @@ export const renderItems = (pokemon) => {
   cardContainer.appendChild(li);
   li.setAttribute("itemscope", "");
   li.setAttribute("itemtype", "pokemon");
+  li.setAttribute("class", "cards");
 
   const pokemonName = document.createElement("dd");
   li.appendChild(pokemonName);
