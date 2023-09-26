@@ -24,30 +24,28 @@
         ><button data-testid="button-clear">Limpiar</button></label
       >
       <p>Filtrar por:</p>
+      <label class="filter" for="type">
+        Tipo
+        <select name="type" data-testid="select-filter" id="type">
+          <option>Todos</option>
+        </select>
+      </label>
+      <label class="filter" for="resistant-to">
+        Resiste a
+        <select name="resistant-to" data-testid="select-filter" id="resistant-to">
+          <option>Sin filtro</option>
+        </select>
+      </label>
+      <label class="filter" for="weak-to">
+        Débil a
+        <select name="weak-to" data-testid="select-filter" id="weak-to">
+          <option>Sin filtro</option>
+        </select>
+      </label>
       <select name="ordenar-por" data-testid="select-sort">
         <option value="tasaAparicion">Tasa de aparición</option>
         <option value="costoEvolucion">Costo de evolución</option>
       </select>
-      <label class="filter" for="type">
-        Tipo
-        <select name="type" data-testid="select-filter" id="type"></select>
-      </label>
-      <label class="filter" for="resistant-to">
-        Resiste a
-        <select
-          name="resistant-to"
-          data-testid="select-filter"
-          id="resistant-to"
-        ></select>
-      </label>
-      <label class="filter" for="weak-to">
-        Débil a
-        <select
-          name="weak-to"
-          data-testid="select-filter"
-          id="weak-to"
-        ></select>
-      </label>
       <label for="cambiar-orden-asc"
         ><input type="radio" name="sort-order" value="asc" />Ascendente</label
       >

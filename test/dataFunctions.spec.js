@@ -4,14 +4,14 @@ import { dataGrass } from "./data.js";
 
 describe("dataFilter", () => {
   it('debería retornar bulbasaur, ivysaur y venasaur para la selección "grass"', () => {
-    const dataFiltered = dataFilter(fakeData, "type", "grass");
-    expect(dataFiltered).toStrictEqual(dataGrass)
+    const dataFiltered = dataFilter(fakeData['pokemon'], "type", "grass");
+    expect(dataFiltered).toStrictEqual(dataGrass['pokemon'])
   });
 });
 
 describe("dataFilter", () => {
   it('debería retornar un array vacío', () => {
-    const dataFiltered = dataFilter(fakeData, "type", "aklsdjalsd");
+    const dataFiltered = dataFilter(fakeData['pokemon'], "type", "aklsdjalsd");
     expect(dataFiltered).toStrictEqual([])
   });
 });
