@@ -1,16 +1,20 @@
 // estas funciones son de ejemplo
 
 export const dataFilter = (data, filterBy, value) => {
-  const filter = data.filter((element)=>{
-    return element[filterBy].includes(value)
-  })
+  const filter = data.filter((element) => {
+    return element[filterBy].includes(value);
+  });
   return filter;
 };
 
-// export const anotherExample = (data, filterBy, value) => {
-//   //const optionPokemonTypeSelected = data.filter(type => type === type.grass); 
-//   const filter = data.filter((element)=>{
-//     return element[filterBy] == value
-//   })
-//   return filter;
-// };
+export const sortData = (data, sortBy, sortOrder) => {
+  return data.sort((pokemon1, pokemon2) => {
+    if ( pokemon1[sortBy] < pokemon2[sortBy]) {
+      return -1
+    }
+    if ( pokemon1[sortBy] > pokemon2[sortBy]) {
+      return 1
+    }
+  }) 
+};
+

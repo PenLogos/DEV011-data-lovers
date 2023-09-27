@@ -1,4 +1,5 @@
 import { dataFilter } from "../src/dataFunctions.js";
+import { sortData } from "../src/dataFunctions.js";
 import { data as fakeData } from "./data.js";
 import { dataGrass } from "./data.js";
 

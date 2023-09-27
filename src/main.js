@@ -1,4 +1,5 @@
 import { dataFilter } from "./dataFunctions.js";
+import { sortData } from "./dataFunctions.js";
 import { renderItems } from "./view.js";
 
 import data from "./data/pokemon/pokemon.js";
@@ -9,10 +10,10 @@ const selectFilterResistant = document.querySelector("select[name=resistant-to]"
 const selectFilterWeakness = document.querySelector("select[name=weak-to]");
 const selectFilterName = document.querySelector("input[type=text]");
 const cardContainer = document.querySelector(".contenedor");
+const selectSort = document.querySelector("select[name=order-by]");
 
 const arrayTypeValues = Object.values(selectPokemon).flatMap(
-  (item) => item.type
-);
+  (item) => item.type);
 
 const cleanArrayTypeValues = arrayTypeValues.filter((value, index, self) => {
   return self.indexOf(value) === index;
@@ -85,5 +86,12 @@ selectFilterName.addEventListener("change", () => {
     noName.setAttribute("class", "message")
     noName.innerHTML = "Ningún pokemon se llama así, intenta de nuevo"
   }
+});
+
+selectSort.addEventListener("change", () => {
+  const resultsSort = sortData(selectPokemon, "name");
+  console.log(resultsSort);
+  cardContainer.innerHTML = "";
+  resultsSort.forEach(renderItems)
 });
 

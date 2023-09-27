@@ -12,7 +12,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: center
-  /* position: relative; */
 }
 
 main, header {
@@ -22,9 +21,6 @@ main, header {
 
 h1 {
   background-color: rgba(59, 76, 202, 0.7);
-  /* position: absolute;
-  top: 20%;
-  left: 35%; */
   height: 65px;
   width: 450px;
   font-size: 250%;
