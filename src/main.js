@@ -77,6 +77,13 @@ selectFilterWeakness.addEventListener("change", () => {
 selectFilterName.addEventListener("change", () => {
   const resultFilterName = dataFilter(selectPokemon, "name", selectFilterName.value);
   cardContainer.innerHTML = "";
-  resultFilterName.forEach(renderItems);
+  if (resultFilterName.length > 0) {
+    resultFilterName.forEach(renderItems);
+  } else {
+    const noName = document.createElement("p");
+    cardContainer.appendChild(noName);
+    noName.setAttribute("class", "message")
+    noName.innerHTML = "Ningún pokemon se llama así, intenta de nuevo"
+  }
 });
 
