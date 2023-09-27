@@ -9,7 +9,10 @@ body {
 header {
   background-image: url("imagenes/headerImage.jpg");
   height: 7em;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center
+  /* position: relative; */
 }
 
 main, header {
@@ -19,11 +22,11 @@ main, header {
 
 h1 {
   background-color: rgba(59, 76, 202, 0.7);
-  position: absolute;
+  /* position: absolute;
   top: 20%;
-  left: 35%;
-  height: 60%;
-  width: 30%;
+  left: 35%; */
+  height: 65px;
+  width: 450px;
   font-size: 250%;
 }
 h2 {
