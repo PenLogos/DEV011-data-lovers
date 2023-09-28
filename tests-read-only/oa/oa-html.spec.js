@@ -8,8 +8,10 @@ import { data as fakeData } from '../../test/data.js';
 const html = fs.readFileSync('./src/index.html', 'utf-8');
 document.body.innerHTML = html;
 
+
 const renderDOM = (data) => {
   const items = renderItems(data);
+  console.log('aqui estamos', items)
   // function renderItems can return html string or an node element
   if (typeof items === 'string') {
     document.querySelector('#root').innerHTML = items;
@@ -23,7 +25,7 @@ const renderDOM = (data) => {
 describe('Uso de HTML semántico', () => {
   
   beforeEach(() => {
-    renderDOM(fakeData);
+    renderDOM(fakeData.pokemon[0]);
   });
 
   describe('<header>', () => {

@@ -1,6 +1,6 @@
 // estas funciones son de ejemplo
-const cardContainer = document.querySelector(".contenedor");
 export const renderItems = (pokemon) => {
+  const cardContainer = document.querySelector(".contenedor");
   const li = document.createElement("li");
   cardContainer.appendChild(li);
   li.setAttribute("itemscope", "");
@@ -102,4 +102,5 @@ export const renderItems = (pokemon) => {
   li.appendChild(pokemonSpawnChance);
   pokemonSpawnChance.setAttribute("itemprop", "spawn-chance");
   pokemonSpawnChance.innerHTML = `Tasa de aparición: ${pokemon["spawn-chance"]}`;
+  return `<ul><li></ul></li>`
 };

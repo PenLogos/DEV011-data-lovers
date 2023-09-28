@@ -58,7 +58,7 @@ const applyFilter = (filterName, selectedValue) => {
   for (const filter in filteredResults) {
     if (filteredResults[filter].length > 0) {
       filterIntersection = filterIntersection.filter((element) =>
-      filteredResults[filter].includes(element)
+        filteredResults[filter].includes(element)
       );
     }
   }
@@ -107,7 +107,7 @@ const applyOrder = (filteredData, sortedBy, order) => {
   for (const filter in filteredResults) {
     if (filteredResults[filter].length > 0) {
       toOrder = toOrder.filter((element) =>
-      filteredResults[filter].includes(element)
+        filteredResults[filter].includes(element)
       );
     }
   }
