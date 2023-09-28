@@ -11,6 +11,9 @@ const selectFilterWeakness = document.querySelector("select[name=weak-to]");
 const selectFilterName = document.querySelector("input[type=text]");
 const cardContainer = document.querySelector(".contenedor");
 const selectSort = document.querySelector("select[name=order-by]");
+const selectOrderAsc = document.querySelector("input[value=asc]");
+const selectOrderDesc = document.querySelector("input[value=desc]");
+
 
 const arrayTypeValues = Object.values(selectPokemon).flatMap(
   (item) => item.type);
@@ -66,15 +69,19 @@ const applyFilter = (filterName, selectedValue) => {
     noResults.innerHTML = "No hay pokemones así por atrapar, sigue buscando"
   }
 };
-selectFilterType.addEventListener("change", () => {
-  applyFilter("type", selectFilterType.value);
+selectFilterType.addEventListener("change", (e) => {
+  const selectFilterTypeValue = e.target.value;
+  applyFilter("type", selectFilterTypeValue);
 });
-selectFilterResistant.addEventListener("change", () => {
-  applyFilter("resistant", selectFilterResistant.value);
+selectFilterResistant.addEventListener("change", (e) => {
+  const selectFilterResistantValue = e.target.value;
+  applyFilter("resistant", selectFilterResistantValue);
 });
-selectFilterWeakness.addEventListener("change", () => {
-  applyFilter("weaknesses", selectFilterWeakness.value);
+selectFilterWeakness.addEventListener("change", (e) => {
+  const selectFilterWeaknessValue= e.target.value;
+  applyFilter("weaknesses", selectFilterWeaknessValue);
 });
+
 selectFilterName.addEventListener("change", () => {
   const resultFilterName = dataFilter(selectPokemon, "name", selectFilterName.value);
   cardContainer.innerHTML = "";
@@ -89,9 +96,24 @@ selectFilterName.addEventListener("change", () => {
 });
 
 selectSort.addEventListener("change", () => {
-  const resultsSort = sortData(selectPokemon, "name");
+  const resultsSort = sortData(selectPokemon, "name", "asc");
   console.log(resultsSort);
   cardContainer.innerHTML = "";
   resultsSort.forEach(renderItems)
+});
+
+
+selectOrderAsc.addEventListener("click", () => {
+  const resultsSortAsc = sortData(selectPokemon, "name", "asc");
+  console.log(resultsSortAsc);
+  cardContainer.innerHTML = "";
+  resultsSortAsc.forEach(renderItems)
+});
+
+selectOrderDesc.addEventListener("click", () => {
+  const resultsSortDesc = sortData(selectPokemon, "name", "desc");
+  console.log(resultsSortDesc);
+  cardContainer.innerHTML = "";
+  resultsSortDesc .forEach(renderItems)
 });
 

@@ -9,11 +9,20 @@ export const dataFilter = (data, filterBy, value) => {
 
 export const sortData = (data, sortBy, sortOrder) => {
   return data.sort((pokemon1, pokemon2) => {
-    if ( pokemon1[sortBy] < pokemon2[sortBy]) {
-      return -1
-    }
-    if ( pokemon1[sortBy] > pokemon2[sortBy]) {
-      return 1
+    if (sortOrder === "asc"){
+      if ( pokemon1[sortBy] < pokemon2[sortBy]) {
+        return -1
+      }
+      if ( pokemon1[sortBy] > pokemon2[sortBy]) {
+        return 1
+      }
+    } else if (sortOrder === "desc"){
+      if ( pokemon1[sortBy] < pokemon2[sortBy]) {
+        return 1
+      }
+      if ( pokemon1[sortBy] > pokemon2[sortBy]) {
+        return -1
+      }
     }
   }) 
 };
