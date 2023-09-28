@@ -1,14 +1,20 @@
 import { dataFilter } from "./dataFunctions.js";
+import { sortData } from "./dataFunctions.js";
 import { renderItems } from "./view.js";
 
 import data from "./data/pokemon/pokemon.js";
 
 const selectPokemon = data.pokemon;
 const selectFilterType = document.querySelector("select[name=type]");
-const selectFilterResistant = document.querySelector("select[name=resistant-to]");
+const selectFilterResistant = document.querySelector(
+  "select[name=resistant-to]"
+);
 const selectFilterWeakness = document.querySelector("select[name=weak-to]");
 const selectFilterName = document.querySelector("input[type=text]");
 const cardContainer = document.querySelector(".contenedor");
+const selectSort = document.querySelector("select[name=order-by]");
+const selectSortValueAsc = document.querySelector("input[value=asc]");
+const selectSortValueDesc = document.querySelector("input[value=desc]");
 
 const arrayTypeValues = Object.values(selectPokemon).flatMap(
   (item) => item.type
@@ -45,14 +51,14 @@ const filteredResults = {
 };
 
 const applyFilter = (filterName, selectedValue) => {
+  let filterIntersection = [...selectPokemon];
   selectFilterName.value = "";
   filteredResults[filterName] = dataFilter(selectPokemon, filterName, selectedValue);
   cardContainer.innerHTML = "";
-  let filterIntersection = [...selectPokemon];
   for (const filter in filteredResults) {
     if (filteredResults[filter].length > 0) {
       filterIntersection = filterIntersection.filter((element) =>
-        filteredResults[filter].includes(element)
+      filteredResults[filter].includes(element)
       );
     }
   }
@@ -61,19 +67,24 @@ const applyFilter = (filterName, selectedValue) => {
   } else {
     const noResults = document.createElement("p");
     cardContainer.appendChild(noResults);
-    noResults.setAttribute("class", "message")
-    noResults.innerHTML = "No hay pokemones así por atrapar, sigue buscando"
+    noResults.setAttribute("class", "message");
+    noResults.innerHTML = "No hay pokemones así por atrapar, sigue buscando";
   }
 };
-selectFilterType.addEventListener("change", () => {
-  applyFilter("type", selectFilterType.value);
+
+selectFilterType.addEventListener("change", (e) => {
+  const selectFilterTypeValue = e.target.value;
+  applyFilter("type", selectFilterTypeValue);
 });
-selectFilterResistant.addEventListener("change", () => {
-  applyFilter("resistant", selectFilterResistant.value);
+selectFilterResistant.addEventListener("change", (e) => {
+  const selectFilterResistantValue = e.target.value;
+  applyFilter("resistant", selectFilterResistantValue);
 });
-selectFilterWeakness.addEventListener("change", () => {
-  applyFilter("weaknesses", selectFilterWeakness.value);
+selectFilterWeakness.addEventListener("change", (e) => {
+  const selectFilterWeaknessValue= e.target.value;
+  applyFilter("weaknesses", selectFilterWeaknessValue);
 });
+
 selectFilterName.addEventListener("change", () => {
   const resultFilterName = dataFilter(selectPokemon, "name", selectFilterName.value);
   cardContainer.innerHTML = "";
@@ -82,8 +93,35 @@ selectFilterName.addEventListener("change", () => {
   } else {
     const noName = document.createElement("p");
     cardContainer.appendChild(noName);
-    noName.setAttribute("class", "message")
-    noName.innerHTML = "Ningún pokemon se llama así, intenta de nuevo"
+    noName.setAttribute("class", "message");
+    noName.innerHTML = "Ningún pokemon se llama así, intenta de nuevo";
   }
 });
 
+
+let toOrder = [...selectPokemon];
+const applyOrder = (filteredData, sortedBy, order) => {
+  selectFilterName.value = "";
+  filteredResults[sortedBy] = sortData(filteredData, sortedBy, order);
+  cardContainer.innerHTML = "";
+  for (const filter in filteredResults) {
+    if (filteredResults[filter].length > 0) {
+      toOrder = toOrder.filter((element) =>
+      filteredResults[filter].includes(element)
+      );
+    }
+  }
+  toOrder.forEach(renderItems);
+}
+
+selectSort.addEventListener("change", () => {
+  applyOrder(toOrder, "name")
+});
+
+selectSortValueAsc.addEventListener("click", () => {
+  applyOrder(toOrder, "name")
+});
+
+selectSortValueDesc.addEventListener("click", () => {
+  applyOrder(toOrder, "name", selectSortValueDesc)
+});

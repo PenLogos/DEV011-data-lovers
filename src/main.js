@@ -72,15 +72,19 @@ const applyFilter = (filterName, selectedValue) => {
   }
 };
 
-selectFilterType.addEventListener("change", () => {
-  applyFilter("type", selectFilterType.value);
+selectFilterType.addEventListener("change", (e) => {
+  const selectFilterTypeValue = e.target.value;
+  applyFilter("type", selectFilterTypeValue);
 });
-selectFilterResistant.addEventListener("change", () => {
-  applyFilter("resistant", selectFilterResistant.value);
+selectFilterResistant.addEventListener("change", (e) => {
+  const selectFilterResistantValue = e.target.value;
+  applyFilter("resistant", selectFilterResistantValue);
 });
-selectFilterWeakness.addEventListener("change", () => {
-  applyFilter("weaknesses", selectFilterWeakness.value);
+selectFilterWeakness.addEventListener("change", (e) => {
+  const selectFilterWeaknessValue= e.target.value;
+  applyFilter("weaknesses", selectFilterWeaknessValue);
 });
+
 selectFilterName.addEventListener("change", () => {
   const resultFilterName = dataFilter(selectPokemon, "name", selectFilterName.value);
   cardContainer.innerHTML = "";
