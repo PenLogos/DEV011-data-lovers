@@ -6,14 +6,19 @@ import data from "./data/pokemon/pokemon.js";
 
 const selectPokemon = data.pokemon;
 const selectFilterType = document.querySelector("select[name=type]");
-const selectFilterResistant = document.querySelector("select[name=resistant-to]");
+const selectFilterResistant = document.querySelector(
+  "select[name=resistant-to]"
+);
 const selectFilterWeakness = document.querySelector("select[name=weak-to]");
 const selectFilterName = document.querySelector("input[type=text]");
 const cardContainer = document.querySelector(".contenedor");
 const selectSort = document.querySelector("select[name=order-by]");
+const selectSortValueAsc = document.querySelector("input[value=asc]");
+const selectSortValueDesc = document.querySelector("input[value=desc]");
 
 const arrayTypeValues = Object.values(selectPokemon).flatMap(
-  (item) => item.type);
+  (item) => item.type
+);
 
 const cleanArrayTypeValues = arrayTypeValues.filter((value, index, self) => {
   return self.indexOf(value) === index;
@@ -46,14 +51,14 @@ const filteredResults = {
 };
 
 const applyFilter = (filterName, selectedValue) => {
+  let filterIntersection = [...selectPokemon];
   selectFilterName.value = "";
   filteredResults[filterName] = dataFilter(selectPokemon, filterName, selectedValue);
   cardContainer.innerHTML = "";
-  let filterIntersection = [...selectPokemon];
   for (const filter in filteredResults) {
     if (filteredResults[filter].length > 0) {
       filterIntersection = filterIntersection.filter((element) =>
-        filteredResults[filter].includes(element)
+      filteredResults[filter].includes(element)
       );
     }
   }
@@ -62,10 +67,11 @@ const applyFilter = (filterName, selectedValue) => {
   } else {
     const noResults = document.createElement("p");
     cardContainer.appendChild(noResults);
-    noResults.setAttribute("class", "message")
-    noResults.innerHTML = "No hay pokemones así por atrapar, sigue buscando"
+    noResults.setAttribute("class", "message");
+    noResults.innerHTML = "No hay pokemones así por atrapar, sigue buscando";
   }
 };
+
 selectFilterType.addEventListener("change", () => {
   applyFilter("type", selectFilterType.value);
 });
@@ -83,15 +89,35 @@ selectFilterName.addEventListener("change", () => {
   } else {
     const noName = document.createElement("p");
     cardContainer.appendChild(noName);
-    noName.setAttribute("class", "message")
-    noName.innerHTML = "Ningún pokemon se llama así, intenta de nuevo"
+    noName.setAttribute("class", "message");
+    noName.innerHTML = "Ningún pokemon se llama así, intenta de nuevo";
   }
 });
 
-selectSort.addEventListener("change", () => {
-  const resultsSort = sortData(selectPokemon, "name");
-  console.log(resultsSort);
+
+let toOrder = [...selectPokemon];
+const applyOrder = (filteredData, sortedBy, order) => {
+  selectFilterName.value = "";
+  filteredResults[sortedBy] = sortData(filteredData, sortedBy, order);
   cardContainer.innerHTML = "";
-  resultsSort.forEach(renderItems)
+  for (const filter in filteredResults) {
+    if (filteredResults[filter].length > 0) {
+      toOrder = toOrder.filter((element) =>
+      filteredResults[filter].includes(element)
+      );
+    }
+  }
+  toOrder.forEach(renderItems);
+}
+
+selectSort.addEventListener("change", () => {
+  applyOrder(toOrder, "name")
 });
 
+selectSortValueAsc.addEventListener("click", () => {
+  applyOrder(toOrder, "name")
+});
+
+selectSortValueDesc.addEventListener("click", () => {
+  applyOrder(toOrder, "name", selectSortValueDesc)
+});
