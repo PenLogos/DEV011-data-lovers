@@ -1,8 +1,6 @@
 // estas funciones son de ejemplo
 export const renderItems = (pokemon) => {
   const cardContainer = document.querySelector(".contenedor");
-  // const ul = document.createElement("ul")
-  console.log('===>>>', cardContainer);
   const li = document.createElement("li");
   cardContainer.appendChild(li);
   li.setAttribute("itemscope", "");
