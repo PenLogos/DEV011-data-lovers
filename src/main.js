@@ -1,20 +1,20 @@
 import { dataFilter } from "./dataFunctions.js";
 import { sortData } from "./dataFunctions.js";
+import { computeStats } from "./dataFunctions.js";
 import { renderItems } from "./view.js";
 
 import data from "./data/pokemon/pokemon.js";
 
 const selectPokemon = data.pokemon;
 const selectFilterType = document.querySelector("select[name=type]");
-const selectFilterResistant = document.querySelector(
-  "select[name=resistant-to]"
-);
+const selectFilterResistant = document.querySelector("select[name=resistant-to]");
 const selectFilterWeakness = document.querySelector("select[name=weak-to]");
 const selectFilterName = document.querySelector("input[type=text]");
 const cardContainer = document.querySelector(".contenedor");
 const selectSort = document.querySelector("select[name=order-by]");
 const selectSortValueAsc = document.querySelector("input[value=asc]");
 const selectSortValueDesc = document.querySelector("input[value=desc]");
+const computeStatsP = document.querySelector("#compute-stats-result");
 
 const arrayTypeValues = Object.values(selectPokemon).flatMap(
   (item) => item.type
@@ -50,6 +50,8 @@ const filteredResults = {
   weaknesses: [],
 };
 
+
+
 const applyFilter = (filterName, selectedValue) => {
   let filterIntersection = [...selectPokemon];
   selectFilterName.value = "";
@@ -64,11 +66,14 @@ const applyFilter = (filterName, selectedValue) => {
   }
   if (filterIntersection.length > 0) {
     filterIntersection.forEach(renderItems);
+    computeStatsP.innerHTML = `Tasa de aparición media ${computeStats(filterIntersection, "spawn-chance")}`;
+    console.log(computeStats(filterIntersection, "spawn-chance"))
   } else {
     const noResults = document.createElement("p");
     cardContainer.appendChild(noResults);
     noResults.setAttribute("class", "message");
     noResults.innerHTML = "No hay pokemones así por atrapar, sigue buscando";
+    computeStatsP.innerHTML = "";
   }
 };
 
@@ -116,6 +121,7 @@ const applyOrder = (filteredData, sortedBy, order) => {
 
 selectSort.addEventListener("change", () => {
   applyOrder(toOrder, "name")
+  console.log(sortData)
 });
 
 selectSortValueAsc.addEventListener("click", () => {
@@ -125,3 +131,5 @@ selectSortValueAsc.addEventListener("click", () => {
 selectSortValueDesc.addEventListener("click", () => {
   applyOrder(toOrder, "name", selectSortValueDesc)
 });
+
+

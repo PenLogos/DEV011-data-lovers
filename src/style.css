@@ -11,12 +11,13 @@ header {
   height: 7em;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
-main, header {
+main,
+header {
   margin: 0 0 1% 0;
-  text-align:center
+  text-align: center;
 }
 
 h1 {
@@ -27,27 +28,29 @@ h1 {
 }
 h2 {
   width: 100%;
-  text-align:center;
+  text-align: center;
 }
 
-.pokemon-h2{
+.pokemon-h2 {
   height: 35px;
-  }
+}
 
-  
-h2, label, div{
-    margin: 1.5% 1%;
-  }
-  
-h1,h2 {
-    color: #ffde00;
-  }
-div {
+h2,
+label {
+  margin: 1.5% 1%;
+}
+
+h1,
+h2 {
+  color: #ffde00;
+}
+#controls {
+  margin: 1.5% 1% 0 1%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-}  
+}
 
 button [data-testid="button-clear"] {
   width: 100px;
@@ -60,7 +63,7 @@ input[type="text"] {
   margin: 0, 5%;
 }
 .color {
-  color:#17EF53;
+  color: #17ef53;
   font-size: 130%;
 }
 label {
@@ -77,6 +80,24 @@ button {
   border-radius: 10px;
   border: 2px solid #cc0000;
   background-color: #d9d9d9;
+}
+
+#sort {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  background-color: #cc0000;
+}
+
+label[for="change-order-asc"],
+label[for="change-order-desc"] {
+  height: 1%;
+}
+
+#compute-stats-result {
+  font-size: 100%;
+  color: black;
+  background-color: #17ef53;
 }
 
 ul {
@@ -237,13 +258,13 @@ dd[itemprop="spawn-chance"] {
 }
 
 .message {
-  color:#17EF53;
+  color: #17ef53;
   font-size: 150%;
-  margin: 0 0 20% 0
+  margin: 0 0 20% 0;
 }
 
 footer {
-text-align: center;
-font-size: 120%;
-color:#d9d9d9
+  text-align: center;
+  font-size: 120%;
+  color: #d9d9d9;
 }

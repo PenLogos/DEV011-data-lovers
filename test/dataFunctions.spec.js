@@ -1,5 +1,6 @@
 import { dataFilter } from "../src/dataFunctions.js";
 import { sortData } from "../src/dataFunctions.js";
+import { computeStats } from "../src/dataFunctions.js";
 import { data as fakeData } from "./data.js";
 import { dataGrass } from "./data.js";
 import { sortedPokemonAsc } from "./data.js";
@@ -32,5 +33,12 @@ describe("sortData", () => {
   it('debería ordenar la data de manera descendente', () => {
     const sortedData = sortData(fakeData['pokemon'], "name", desc);
     expect(sortedData).toStrictEqual(sortedPokemonDesc['pokemon'])
+  });
+});
+
+describe("computeStats", () => {
+  it('debería retornar la tasa de aparición media de los resultados de los filtros', () => {
+    const averageSpawnChance = computeStats(fakeData['pokemon'], "spawn-chance");
+    expect(averageSpawnChance).toBe("0.20")
   });
 });

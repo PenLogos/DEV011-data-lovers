@@ -1,3 +1,5 @@
+// import pokemon from "./data/pokemon/pokemon";
+
 export const dataFilter = (data, filterBy, value) => {
   const filter = data.filter((element) => {
     return element[filterBy].includes(value);
@@ -14,3 +16,15 @@ export const sortData = (data, sortBy, sortOrder) => {
     }
   });
 };
+
+export const computeStats = (data, stat) => {
+  const newArray = data.map((element) => parseFloat(element[stat]));
+  const elementNum = newArray.filter((element) => !isNaN(element));
+  const average = elementNum .reduce((sum, eachPokemon) => sum += eachPokemon)/elementNum.length;
+  return average.toFixed(2)
+};
+  
+
+  
+
+

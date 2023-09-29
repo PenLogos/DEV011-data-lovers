@@ -21,7 +21,7 @@
         <input type="text" placeholder="busca por nombre de pokémon" />
       </label>
       <label name="row2" for="boton-limpiar"><button data-testid="button-clear">Limpiar</button></label>
-      <div>
+      <div id="controls">
         <p class="color"> Filtrar por:</p>
       <label class="filter" for="type">
         Tipo
@@ -48,12 +48,13 @@
         </select>
       </label>
     </div>
-      <label for="change-order-asc"
-        ><input type="radio" name="sort-order" value="asc" id="change-order-asc" />Ascendente</label
-      >
-      <label for="change-order-desc"
-        ><input type="radio" name="sort-order" value="desc" id="change-order-desc" />Descendente</label
-      >
+    <div id="sort">
+      <label for="change-order-asc">
+        <input type="radio" name="sort-order" value="asc" id="change-order-asc" />Ascendente</label>
+      <label for="change-order-desc">
+        <input type="radio" name="sort-order" value="desc" id="change-order-desc" />Descendente</label>
+    </div>
+     <p id="compute-stats-result"></p>
     </main>
     <section id="root">
       <ul class="contenedor"></ul>
