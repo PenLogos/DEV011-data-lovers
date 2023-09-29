@@ -16,29 +16,29 @@
     </header>
     <main class="filters">
       <h2>Encuentra cualquier <img class="pokemon-h2" src="imagenes/Pokemon-img.svg" alt="pokemon-logo"> de las regiones de Kanto y Johto</h2>
-      <label name="row2" class="choose" for="search-by-name">
+      <label name="row2" class="choose" for="">
         Elige los criterios de búsqueda para comenzar
         <input type="text" placeholder="busca por nombre de pokémon" />
       </label>
       <label name="row2" for="boton-limpiar"><button data-testid="button-clear">Limpiar</button></label>
-      <div>
+      <div id="controls">
         <p class="color"> Filtrar por:</p>
       <label class="filter" for="type">
         Tipo
         <select name="type" data-testid="select-filter" id="type">
-          <option>Todos</option>
+          <option value="all">Todos</option>
         </select>
       </label>
       <label class="filter" for="resistant-to">
         Resiste a
         <select name="resistant-to" data-testid="select-filter" id="resistant-to">
-          <option>Sin filtro</option>
+          <option value="no-filters">Sin filtro</option>
         </select>
       </label>
       <label class="filter" for="weak-to">
         Débil a
         <select name="weak-to" data-testid="select-filter" id="weak-to">
-          <option>Sin filtro</option>
+          <option value="no-filters">Sin filtro</option>
         </select>
       </label>
       <label for="order-by">
@@ -48,12 +48,13 @@
         </select>
       </label>
     </div>
-      <label for="change-order-asc"
-        ><input type="radio" name="sort-order" value="asc" id="change-order-asc" />Ascendente</label
-      >
-      <label for="change-order-desc"
-        ><input type="radio" name="sort-order" value="desc" id="change-order-desc" />Descendente</label
-      >
+    <div id="sort">
+      <label for="change-order-asc">
+        <input type="radio" name="sort-order" value="asc" id="change-order-asc" />Ascendente</label>
+      <label for="change-order-desc">
+        <input type="radio" name="sort-order" value="desc" id="change-order-desc" />Descendente</label>
+    </div>
+     <p id="compute-stats-result"></p>
     </main>
     <section id="root">
       <ul class="contenedor"></ul>

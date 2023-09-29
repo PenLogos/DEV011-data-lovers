@@ -1,20 +1,21 @@
 import { dataFilter } from "./dataFunctions.js";
 import { sortData } from "./dataFunctions.js";
+import { computeStats } from "./dataFunctions.js";
 import { renderItems } from "./view.js";
 
 import data from "./data/pokemon/pokemon.js";
 
 const selectPokemon = data.pokemon;
 const selectFilterType = document.querySelector("select[name=type]");
-const selectFilterResistant = document.querySelector(
-  "select[name=resistant-to]"
-);
+const selectFilterResistant = document.querySelector("select[name=resistant-to]");
 const selectFilterWeakness = document.querySelector("select[name=weak-to]");
 const selectFilterName = document.querySelector("input[type=text]");
 const cardContainer = document.querySelector(".contenedor");
 const selectSort = document.querySelector("select[name=order-by]");
 const selectSortValueAsc = document.querySelector("input[value=asc]");
 const selectSortValueDesc = document.querySelector("input[value=desc]");
+const computeStatsP = document.querySelector("#compute-stats-result");
+const cleanButton = document.querySelector("button[data-testid=button-clear]")
 
 const arrayTypeValues = Object.values(selectPokemon).flatMap(
   (item) => item.type
@@ -50,6 +51,8 @@ const filteredResults = {
   weaknesses: [],
 };
 
+
+
 const applyFilter = (filterName, selectedValue) => {
   let filterIntersection = [...selectPokemon];
   selectFilterName.value = "";
@@ -58,17 +61,20 @@ const applyFilter = (filterName, selectedValue) => {
   for (const filter in filteredResults) {
     if (filteredResults[filter].length > 0) {
       filterIntersection = filterIntersection.filter((element) =>
-      filteredResults[filter].includes(element)
+        filteredResults[filter].includes(element)
       );
     }
   }
   if (filterIntersection.length > 0) {
     filterIntersection.forEach(renderItems);
+    computeStatsP.innerHTML = `Tasa de aparición media ${computeStats(filterIntersection, "spawn-chance")}`;
+    console.log(computeStats(filterIntersection, "spawn-chance"))
   } else {
     const noResults = document.createElement("p");
     cardContainer.appendChild(noResults);
     noResults.setAttribute("class", "message");
     noResults.innerHTML = "No hay pokemones así por atrapar, sigue buscando";
+    computeStatsP.innerHTML = "";
   }
 };
 
@@ -107,7 +113,7 @@ const applyOrder = (filteredData, sortedBy, order) => {
   for (const filter in filteredResults) {
     if (filteredResults[filter].length > 0) {
       toOrder = toOrder.filter((element) =>
-      filteredResults[filter].includes(element)
+        filteredResults[filter].includes(element)
       );
     }
   }
@@ -116,6 +122,7 @@ const applyOrder = (filteredData, sortedBy, order) => {
 
 selectSort.addEventListener("change", () => {
   applyOrder(toOrder, "name")
+  console.log(sortData)
 });
 
 selectSortValueAsc.addEventListener("click", () => {
@@ -125,3 +132,19 @@ selectSortValueAsc.addEventListener("click", () => {
 selectSortValueDesc.addEventListener("click", () => {
   applyOrder(toOrder, "name", selectSortValueDesc)
 });
+
+cleanButton.addEventListener("click", cleanAll)
+
+function cleanAll() {
+  selectFilterName.value = ""
+  selectFilterType.value = "all"
+  selectFilterResistant.value = "no-filters"
+  selectFilterWeakness.value = "no-filters"
+  selectSort.value = "option-order-by"
+  selectSortValueAsc.checked = false
+  selectSortValueDesc.checked = false 
+  computeStatsP.innerHTML = ""
+  cardContainer.innerHTML = ""
+  selectPokemon.forEach(renderItems)
+}
+
