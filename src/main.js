@@ -15,6 +15,7 @@ const selectSort = document.querySelector("select[name=order-by]");
 const selectSortValueAsc = document.querySelector("input[value=asc]");
 const selectSortValueDesc = document.querySelector("input[value=desc]");
 const computeStatsP = document.querySelector("#compute-stats-result");
+const cleanButton = document.querySelector("button[data-testid=button-clear]")
 
 const arrayTypeValues = Object.values(selectPokemon).flatMap(
   (item) => item.type
@@ -132,4 +133,18 @@ selectSortValueDesc.addEventListener("click", () => {
   applyOrder(toOrder, "name", selectSortValueDesc)
 });
 
+cleanButton.addEventListener("click", cleanAll)
+
+function cleanAll() {
+  selectFilterName.value = ""
+  selectFilterType.value = "all"
+  selectFilterResistant.value = "no-filters"
+  selectFilterWeakness.value = "no-filters"
+  selectSort.value = "option-order-by"
+  selectSortValueAsc.checked = false
+  selectSortValueDesc.checked = false 
+  computeStatsP.innerHTML = ""
+  cardContainer.innerHTML = ""
+  selectPokemon.forEach(renderItems)
+}
 
