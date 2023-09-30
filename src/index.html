@@ -25,28 +25,37 @@
         <p class="color"> Filtrar por:</p>
       <label class="filter" for="type"> Tipo </label>
       <select name="type" data-testid="select-filter" id="type">
-        <option value="all">Todos</option>
+        <!-- <option value="grass">grass</option>
+        <option value="poison">poison</option>
+        <option value="fire">fire</option> -->
+        <!-- <option value="all">Todos</option> -->
       </select>
       <label class="filter" for="resistant-to"> Resiste a </label>
       <select name="resistant-to" data-testid="select-filter" id="resistant-to">
-        <option value="no-filters">Sin filtro</option>
+        <!-- <option value="grass">grass</option>
+        <option value="poison">poison</option>
+        <option value="fire">fire</option> -->
+        <!-- <option value="no-filters">Sin filtro</option> -->
       </select>
       <label class="filter" for="weak-to"> Débil a </label>
       <select name="weak-to" data-testid="select-filter" id="weak-to">
-        <option value="no-filters">Sin filtro</option>
+        <!-- <option value="grass">grass</option>
+        <option value="poison">poison</option>
+        <option value="fire">fire</option> -->
+        <!-- <option value="no-filters">Sin filtro</option> -->
      </select>
-      <label for="order-by"></label>
-      <select name="order-by" data-testid="select-sort" id="order-by">
-        <option value="option-order-by">Ordenar por</option>
-        <option value="name">Nombre</option>
+      <label for="order-by">Ordenar por nombre</label>
+      <select name="name" data-testid="select-sort" id="order-by">
+        <option value="asc">ascendente</option>
+        <option value="desc">descendente</option>
       </select>
     </div>
-    <div id="sort">
+    <!-- <div id="sort">
       <label for="change-order-asc">
         <input type="radio" name="sort-order" value="asc" id="change-order-asc" />Ascendente</label>
       <label for="change-order-desc">
         <input type="radio" name="sort-order" value="desc" id="change-order-desc" />Descendente</label>
-    </div>
+    </div> -->
      <p id="compute-stats-result"></p>
     </main>
     <section id="root">

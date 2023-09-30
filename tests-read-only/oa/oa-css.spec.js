@@ -64,7 +64,7 @@ describe('CSS', () => {
   describe('Uso de selectores de CSS', () => {
 
     beforeEach(() => {
-      renderDOM(fakeData);
+      renderDOM(fakeData.pokemon[0]);
     });
     
     it('elementos <li> tienen un class con CSS', () => {
@@ -97,7 +97,7 @@ describe('CSS', () => {
   describe('Uso de flexbox', () => {
 
     beforeEach(() => {
-      renderDOM(fakeData);
+      renderDOM(fakeData.pokemon[0]);
     });
 
     it('Uso de flexbox en el elemento de <ul>', () => {

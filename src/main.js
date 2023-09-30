@@ -11,9 +11,9 @@ const selectFilterResistant = document.querySelector("select[name=resistant-to]"
 const selectFilterWeakness = document.querySelector("select[name=weak-to]");
 const selectFilterName = document.querySelector("input[type=text]");
 const cardContainer = document.querySelector(".contenedor");
-const selectSort = document.querySelector("select[name=order-by]");
-const selectSortValueAsc = document.querySelector("input[value=asc]");
-const selectSortValueDesc = document.querySelector("input[value=desc]");
+const selectSort = document.querySelector("select[name=name]");
+// const selectSortValueAsc = document.querySelector("input[value=asc]");
+// const selectSortValueDesc = document.querySelector("input[value=desc]");
 const computeStatsP = document.querySelector("#compute-stats-result");
 const cleanButton = document.querySelector("button[data-testid=button-clear]")
 
@@ -29,7 +29,7 @@ function createOption(value) {
   const optionType = document.createElement("option");
   selectFilterType.appendChild(optionType);
   optionType.innerHTML = value;
-  optionType.setAttribute("class", "type-filter");
+  // optionType.setAttribute("class", "type-filter");
   optionType.setAttribute("value", optionType.value);
   const optionResistant = document.createElement("option");
   selectFilterResistant.appendChild(optionResistant);
@@ -39,6 +39,7 @@ function createOption(value) {
   selectFilterWeakness.appendChild(optionWeakness);
   optionWeakness.innerHTML = value;
   optionWeakness.setAttribute("value", optionWeakness.value);
+  return optionType, optionResistant, optionWeakness
 }
 
 selectPokemon.forEach(renderItems);
@@ -68,7 +69,6 @@ const applyFilter = (filterName, selectedValue) => {
   if (filterIntersection.length > 0) {
     filterIntersection.forEach(renderItems);
     computeStatsP.innerHTML = `Tasa de aparición media ${computeStats(filterIntersection, "spawn-chance")}`;
-    console.log(computeStats(filterIntersection, "spawn-chance"))
   } else {
     const noResults = document.createElement("p");
     cardContainer.appendChild(noResults);
@@ -78,16 +78,16 @@ const applyFilter = (filterName, selectedValue) => {
   }
 };
 
-selectFilterType.addEventListener("change", (e) => {
-  const selectFilterTypeValue = e.target.value;
+selectFilterType.addEventListener("change", () => {
+  const selectFilterTypeValue = selectFilterType.value;
   applyFilter("type", selectFilterTypeValue);
 });
-selectFilterResistant.addEventListener("change", (e) => {
-  const selectFilterResistantValue = e.target.value;
+selectFilterResistant.addEventListener("change", () => {
+  const selectFilterResistantValue = selectFilterResistant.value;
   applyFilter("resistant", selectFilterResistantValue);
 });
-selectFilterWeakness.addEventListener("change", (e) => {
-  const selectFilterWeaknessValue= e.target.value;
+selectFilterWeakness.addEventListener("change", () => {
+  const selectFilterWeaknessValue= selectFilterWeakness.value;
   applyFilter("weaknesses", selectFilterWeaknessValue);
 });
 
@@ -121,17 +121,22 @@ const applyOrder = (filteredData, sortedBy, order) => {
 }
 
 selectSort.addEventListener("change", () => {
-  applyOrder(toOrder, "name")
-  console.log(sortData)
+  const selectedValue = selectSort.value
+  if (selectedValue === "desc") {
+  applyOrder(toOrder, "name", selectedValue)
+  }
+  else {
+    applyOrder(toOrder, "name")
+  }
 });
 
-selectSortValueAsc.addEventListener("click", () => {
-  applyOrder(toOrder, "name")
-});
+// selectSortValueAsc.addEventListener("click", () => {
+//   applyOrder(toOrder, "name")
+// });
 
-selectSortValueDesc.addEventListener("click", () => {
-  applyOrder(toOrder, "name", selectSortValueDesc)
-});
+// selectSortValueDesc.addEventListener("click", () => {
+//   applyOrder(toOrder, "name", selectSortValueDesc)
+// });
 
 cleanButton.addEventListener("click", cleanAll)
 
@@ -140,9 +145,9 @@ function cleanAll() {
   selectFilterType.value = "all"
   selectFilterResistant.value = "no-filters"
   selectFilterWeakness.value = "no-filters"
-  selectSort.value = "option-order-by"
-  selectSortValueAsc.checked = false
-  selectSortValueDesc.checked = false 
+  selectSort.value = "asc"
+  // selectSortValueAsc.checked = false
+  // selectSortValueDesc.checked = false 
   computeStatsP.innerHTML = ""
   cardContainer.innerHTML = ""
   selectPokemon.forEach(renderItems)
