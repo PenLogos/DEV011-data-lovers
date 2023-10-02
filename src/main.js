@@ -144,4 +144,3 @@ function cleanAll() {
   cardContainer.innerHTML = ""
   selectPokemon.forEach(renderItems)
 }
-

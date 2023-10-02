@@ -9,12 +9,8 @@ const selectPokemon = data.pokemon;
 const selectFilterType = document.querySelector("select[id=type]");
 const selectFilterResistant = document.querySelector("select[id=resistant-to]");
 const selectFilterWeakness = document.querySelector("select[id=weak-to]");
-const selectFilterType = document.querySelector("select[id=type]");
-const selectFilterResistant = document.querySelector("select[id=resistant-to]");
-const selectFilterWeakness = document.querySelector("select[id=weak-to]");
 const selectFilterName = document.querySelector("input[type=text]");
 const cardContainer = document.querySelector(".contenedor");
-const selectSort = document.querySelector("select[name=name]");
 const selectSort = document.querySelector("select[name=name]");
 const computeStatsP = document.querySelector("#compute-stats-result");
 const cleanButton = document.querySelector("button[data-testid=button-clear]")
@@ -41,7 +37,6 @@ function createOption(value) {
   selectFilterWeakness.appendChild(optionWeakness);
   optionWeakness.innerHTML = value;
   optionWeakness.setAttribute("value", optionWeakness.value);
-  return optionType, optionResistant, optionWeakness
   return optionType, optionResistant, optionWeakness
 }
 
@@ -71,7 +66,6 @@ const applyFilter = (filterName, selectedValue) => {
   }
   if (filterIntersection.length > 0) {
     return filterIntersection.forEach(renderItems),
-    return filterIntersection.forEach(renderItems),
     computeStatsP.innerHTML = `Tasa de aparición media ${computeStats(filterIntersection, "spawn-chance")}`;
   } else {
     const noResults = document.createElement("p");
@@ -79,20 +73,19 @@ const applyFilter = (filterName, selectedValue) => {
     noResults.setAttribute("class", "message");
     noResults.innerHTML = "No hay pokemones así por atrapar, sigue buscando";
     return computeStatsP.innerHTML = "";
-    return computeStatsP.innerHTML = "";
   }
 };
 
-selectFilterType.addEventListener("change", () => {
-  const selectFilterTypeValue = selectFilterType.value;
+selectFilterType.addEventListener("change", (e) => {
+  const selectFilterTypeValue = e.target.value;
   applyFilter("type", selectFilterTypeValue);
 });
-selectFilterResistant.addEventListener("change", () => {
-  const selectFilterResistantValue = selectFilterResistant.value;
+selectFilterResistant.addEventListener("change", (e) => {
+  const selectFilterResistantValue = e.target.value;
   applyFilter("resistant", selectFilterResistantValue);
 });
-selectFilterWeakness.addEventListener("change", () => {
-  const selectFilterWeaknessValue= selectFilterWeakness.value;
+selectFilterWeakness.addEventListener("change", (e) => {
+  const selectFilterWeaknessValue= e.target.value;
   applyFilter("weaknesses", selectFilterWeaknessValue);
 });
 
@@ -133,13 +126,6 @@ selectSort.addEventListener("change", () => {
   else {
     applyOrder(toOrder, "name")
   }
-  const selectedValue = selectSort.value
-  if (selectedValue === "desc") {
-    applyOrder(toOrder, "name", selectedValue)
-  }
-  else {
-    applyOrder(toOrder, "name")
-  }
 });
 
 cleanButton.addEventListener("click", cleanAll)
@@ -158,4 +144,3 @@ function cleanAll() {
   cardContainer.innerHTML = ""
   selectPokemon.forEach(renderItems)
 }
-
