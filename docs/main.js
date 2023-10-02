@@ -6,14 +6,12 @@ import { renderItems } from "./view.js";
 import data from "./data/pokemon/pokemon.js";
 
 const selectPokemon = data.pokemon;
-const selectFilterType = document.querySelector("select[name=type]");
-const selectFilterResistant = document.querySelector("select[name=resistant-to]");
-const selectFilterWeakness = document.querySelector("select[name=weak-to]");
+const selectFilterType = document.querySelector("select[id=type]");
+const selectFilterResistant = document.querySelector("select[id=resistant-to]");
+const selectFilterWeakness = document.querySelector("select[id=weak-to]");
 const selectFilterName = document.querySelector("input[type=text]");
 const cardContainer = document.querySelector(".contenedor");
-const selectSort = document.querySelector("select[name=order-by]");
-const selectSortValueAsc = document.querySelector("input[value=asc]");
-const selectSortValueDesc = document.querySelector("input[value=desc]");
+const selectSort = document.querySelector("select[name=name]");
 const computeStatsP = document.querySelector("#compute-stats-result");
 const cleanButton = document.querySelector("button[data-testid=button-clear]")
 
@@ -39,6 +37,7 @@ function createOption(value) {
   selectFilterWeakness.appendChild(optionWeakness);
   optionWeakness.innerHTML = value;
   optionWeakness.setAttribute("value", optionWeakness.value);
+  return optionType, optionResistant, optionWeakness
 }
 
 selectPokemon.forEach(renderItems);
@@ -66,28 +65,27 @@ const applyFilter = (filterName, selectedValue) => {
     }
   }
   if (filterIntersection.length > 0) {
-    filterIntersection.forEach(renderItems);
+    return filterIntersection.forEach(renderItems),
     computeStatsP.innerHTML = `Tasa de aparición media ${computeStats(filterIntersection, "spawn-chance")}`;
-    console.log(computeStats(filterIntersection, "spawn-chance"))
   } else {
     const noResults = document.createElement("p");
     cardContainer.appendChild(noResults);
     noResults.setAttribute("class", "message");
     noResults.innerHTML = "No hay pokemones así por atrapar, sigue buscando";
-    computeStatsP.innerHTML = "";
+    return computeStatsP.innerHTML = "";
   }
 };
 
-selectFilterType.addEventListener("change", (e) => {
-  const selectFilterTypeValue = e.target.value;
+selectFilterType.addEventListener("change", () => {
+  const selectFilterTypeValue = selectFilterType.value;
   applyFilter("type", selectFilterTypeValue);
 });
-selectFilterResistant.addEventListener("change", (e) => {
-  const selectFilterResistantValue = e.target.value;
+selectFilterResistant.addEventListener("change", () => {
+  const selectFilterResistantValue = selectFilterResistant.value;
   applyFilter("resistant", selectFilterResistantValue);
 });
-selectFilterWeakness.addEventListener("change", (e) => {
-  const selectFilterWeaknessValue= e.target.value;
+selectFilterWeakness.addEventListener("change", () => {
+  const selectFilterWeaknessValue= selectFilterWeakness.value;
   applyFilter("weaknesses", selectFilterWeaknessValue);
 });
 
@@ -121,16 +119,13 @@ const applyOrder = (filteredData, sortedBy, order) => {
 }
 
 selectSort.addEventListener("change", () => {
-  applyOrder(toOrder, "name")
-  console.log(sortData)
-});
-
-selectSortValueAsc.addEventListener("click", () => {
-  applyOrder(toOrder, "name")
-});
-
-selectSortValueDesc.addEventListener("click", () => {
-  applyOrder(toOrder, "name", selectSortValueDesc)
+  const selectedValue = selectSort.value
+  if (selectedValue === "desc") {
+    applyOrder(toOrder, "name", selectedValue)
+  }
+  else {
+    applyOrder(toOrder, "name")
+  }
 });
 
 cleanButton.addEventListener("click", cleanAll)
@@ -141,8 +136,11 @@ function cleanAll() {
   selectFilterResistant.value = "no-filters"
   selectFilterWeakness.value = "no-filters"
   selectSort.value = "option-order-by"
-  selectSortValueAsc.checked = false
-  selectSortValueDesc.checked = false 
+  selectSort.value = "asc"
+  delete filteredResults.type
+  delete filteredResults.resistant
+  delete filteredResults.weaknesses
+  toOrder = [...selectPokemon]
   computeStatsP.innerHTML = ""
   cardContainer.innerHTML = ""
   selectPokemon.forEach(renderItems)
