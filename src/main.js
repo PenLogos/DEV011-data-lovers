@@ -136,8 +136,7 @@ function cleanAll() {
   selectFilterResistant.value = "no-filters"
   selectFilterWeakness.value = "no-filters"
   selectSort.value = "option-order-by"
-  selectSortValueAsc.checked = false
-  selectSortValueDesc.checked = false
+  selectSort.value = "asc"
   delete filteredResults.type
   delete filteredResults.resistant
   delete filteredResults.weaknesses
