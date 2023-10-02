@@ -1,16 +1,9 @@
 
 ## Índice
 
-* [1. Definición del producto](#1-Definición del producto)
-* [2. Diseño de la interfaz de usuaria](#2-Diseño de la interfaz de usuaria)
-* [3. Testeos de usabilidad](#3-Testeos de usabilidad)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Consideraciones técnicas](#5-consideraciones-técnicas)
-* [6. Criterios de aceptación mínimos del proyecto](#6-criterios-de-aceptación-mínimos-del-proyecto)
-* [7. Hacker edition](#7-hacker-edition)
-* [8. Objetivos de aprendizaje](#8-objetivos-de-aprendizaje)
-* [9. Pistas, tips y lecturas complementarias](#9-pistas-tips-y-lecturas-complementarias)
-* [10. Consideraciones para pedir tu Project Feedback](#10-consideraciones-para-pedir-tu-project-feedback)
+* [1. Definición del producto](#1-Definición-del-producto)
+* [2. Diseño de la interfaz de usuaria](#2-Diseño-de-la-interfaz-de-usuaria)
+* [3. Testeos de usabilidad](#3-Testeos-de-usabilidad)
 
 ***
 
@@ -28,8 +21,8 @@ Para el diseño de la interfaz de usuaria el equipo se basó en la elaboración 
 
 Tras elaborar este prototipo, se procedió al diseño del de alta en Figma, pensando en la paleta de colores de Pokémon y en una interfaz sencilla y cómoda para la usuaria. Se aplicó mobile First.
 
-![Prot HF, imagen](https://github.com/PenLogos/DEV011-data-lovers/blob/main/Prot.%20alta.png)
-[Prot HF](https://www.figma.com/proto/g2wBlwyuuT77O7nmwL8O1r/Prototipo-de-alta-fidelidad?type=design&node-id=3-2&t=xNE7sVgTScXBJgoy-0&scaling=scale-down&page-id=0%3A1&starting-point-node-id=3%3A2)
+![Prot-HF-imagen](https://github.com/PenLogos/DEV011-data-lovers/blob/main/Prot.%20alta.png)
+[Prototipo figma](https://www.figma.com/proto/g2wBlwyuuT77O7nmwL8O1r/Prototipo-de-alta-fidelidad?type=design&node-id=3-2&t=xNE7sVgTScXBJgoy-0&scaling=scale-down&page-id=0%3A1&starting-point-node-id=3%3A2)
 
 ## 3. Testeos de usabilidad
 
@@ -39,3 +32,6 @@ Al testear el prototipo de alta fidelidad, se encontraron algunos problemas, com
 -Alineación de los elementos dentro de la interfaz
 
 Estas observaciones se tomaron en cuenta para la elaboración de la interfaz en el código.
+
+![Interfaz-celular]https://github.com/PenLogos/DEV011-data-lovers/blob/main/Screenshot_2023-10-02-12-22-59-29_40deb401b9ffe8e1df2f1cc5ba480b12.jpg
+![Interfaz-pc]https://github.com/PenLogos/DEV011-data-lovers/blob/main/Interfaz%20computador.png
