@@ -12,8 +12,6 @@ const selectFilterWeakness = document.querySelector("select[id=weak-to]");
 const selectFilterName = document.querySelector("input[type=text]");
 const cardContainer = document.querySelector(".contenedor");
 const selectSort = document.querySelector("select[name=name]");
-// const selectSortValueAsc = document.querySelector("input[value=asc]");
-// const selectSortValueDesc = document.querySelector("input[value=desc]");
 const computeStatsP = document.querySelector("#compute-stats-result");
 const cleanButton = document.querySelector("button[data-testid=button-clear]")
 
@@ -29,7 +27,7 @@ function createOption(value) {
   const optionType = document.createElement("option");
   selectFilterType.appendChild(optionType);
   optionType.innerHTML = value;
-  // optionType.setAttribute("class", "type-filter");
+  optionType.setAttribute("class", "type-filter");
   optionType.setAttribute("value", optionType.value);
   const optionResistant = document.createElement("option");
   selectFilterResistant.appendChild(optionResistant);
@@ -130,24 +128,20 @@ selectSort.addEventListener("change", () => {
   }
 });
 
-// selectSortValueAsc.addEventListener("click", () => {
-//   applyOrder(toOrder, "name")
-// });
-
-// selectSortValueDesc.addEventListener("click", () => {
-//   applyOrder(toOrder, "name", selectSortValueDesc)
-// });
-
 cleanButton.addEventListener("click", cleanAll)
 
 function cleanAll() {
   selectFilterName.value = ""
-  selectFilterType.value = "grass"
-  selectFilterResistant.value = "grass"
-  selectFilterWeakness.value = "grass"
-  selectSort.value = "asc"
-  // selectSortValueAsc.checked = false
-  // selectSortValueDesc.checked = false 
+  selectFilterType.value = "all"
+  selectFilterResistant.value = "no-filters"
+  selectFilterWeakness.value = "no-filters"
+  selectSort.value = "option-order-by"
+  selectSortValueAsc.checked = false
+  selectSortValueDesc.checked = false
+  delete filteredResults.type
+  delete filteredResults.resistant
+  delete filteredResults.weaknesses
+  toOrder = [...selectPokemon]
   computeStatsP.innerHTML = ""
   cardContainer.innerHTML = ""
   selectPokemon.forEach(renderItems)
