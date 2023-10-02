@@ -23,7 +23,7 @@ de tomar buenas decisiones al jugar Pokémon Go y otros juegos de la franquicia.
 
 Para el diseño de la interfaz de usuaria el equipo se basó en la elaboración de historias de usuaria, a partir de conversaciones con jugador@s de Pokémon Go y de los resultados de la investigación previa. Con estas historias se determinaron las características más importantes para l@s jugador@s y los filtros más útiles. Se llegó al siguiente prototipo de baja fidelidad:
 
-
+![Prot 1](Prototipo de baja fidelidad pantalla 1 y pantalla de opciones de filtro.png)
 
 ## 3. Funcionalidades
 
