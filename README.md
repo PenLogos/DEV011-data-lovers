@@ -32,5 +32,5 @@ Al testear el prototipo de alta fidelidad, se encontraron algunos problemas, com
 
 Estas observaciones se tomaron en cuenta para la elaboración de la interfaz en el código.
 
-![Interfaz-celular](https://github.com/PenLogos/DEV011-data-lovers/commit/fd7cc84796ea9c248fb0b3febdd0bf9afad74a05)
+![Interfaz-celular](https://github.com/PenLogos/DEV011-data-lovers/blob/main/App%20on%20mobile.jpg)
 ![Interfaz-pc](https://github.com/PenLogos/DEV011-data-lovers/blob/main/Interfaz%20computador.png)
