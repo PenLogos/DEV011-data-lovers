@@ -143,6 +143,10 @@ function cleanAll() {
   selectSort.value = "option-order-by"
   selectSortValueAsc.checked = false
   selectSortValueDesc.checked = false 
+  delete filteredResults.type
+  delete filteredResults.resistant
+  delete filteredResults.weaknesses
+  toOrder = [...selectPokemon]
   computeStatsP.innerHTML = ""
   cardContainer.innerHTML = ""
   selectPokemon.forEach(renderItems)

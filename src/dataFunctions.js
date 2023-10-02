@@ -20,7 +20,7 @@ export const sortData = (data, sortBy, sortOrder) => {
 export const computeStats = (data, stat) => {
   const newArray = data.map((element) => parseFloat(element[stat]));
   const elementNum = newArray.filter((element) => !isNaN(element));
-  const average = elementNum .reduce((sum, eachPokemon) => sum += eachPokemon)/elementNum.length;
+  const average = elementNum.reduce((sum, eachPokemon) => sum += eachPokemon)/elementNum.length;
   return average.toFixed(2)
 };
   
