@@ -6,9 +6,9 @@ import { renderItems } from "./view.js";
 import data from "./data/pokemon/pokemon.js";
 
 const selectPokemon = data.pokemon;
-const selectFilterType = document.querySelector("select[name=type]");
-const selectFilterResistant = document.querySelector("select[name=resistant-to]");
-const selectFilterWeakness = document.querySelector("select[name=weak-to]");
+const selectFilterType = document.querySelector("select[id=type]");
+const selectFilterResistant = document.querySelector("select[id=resistant-to]");
+const selectFilterWeakness = document.querySelector("select[id=weak-to]");
 const selectFilterName = document.querySelector("input[type=text]");
 const cardContainer = document.querySelector(".contenedor");
 const selectSort = document.querySelector("select[name=name]");
@@ -67,14 +67,14 @@ const applyFilter = (filterName, selectedValue) => {
     }
   }
   if (filterIntersection.length > 0) {
-    filterIntersection.forEach(renderItems);
+    return filterIntersection.forEach(renderItems),
     computeStatsP.innerHTML = `Tasa de aparición media ${computeStats(filterIntersection, "spawn-chance")}`;
   } else {
     const noResults = document.createElement("p");
     cardContainer.appendChild(noResults);
     noResults.setAttribute("class", "message");
     noResults.innerHTML = "No hay pokemones así por atrapar, sigue buscando";
-    computeStatsP.innerHTML = "";
+    return computeStatsP.innerHTML = "";
   }
 };
 
@@ -142,9 +142,9 @@ cleanButton.addEventListener("click", cleanAll)
 
 function cleanAll() {
   selectFilterName.value = ""
-  selectFilterType.value = "all"
-  selectFilterResistant.value = "no-filters"
-  selectFilterWeakness.value = "no-filters"
+  selectFilterType.value = "grass"
+  selectFilterResistant.value = "grass"
+  selectFilterWeakness.value = "grass"
   selectSort.value = "asc"
   // selectSortValueAsc.checked = false
   // selectSortValueDesc.checked = false 
