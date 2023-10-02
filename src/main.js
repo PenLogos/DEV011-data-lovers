@@ -76,16 +76,16 @@ const applyFilter = (filterName, selectedValue) => {
   }
 };
 
-selectFilterType.addEventListener("change", () => {
-  const selectFilterTypeValue = selectFilterType.value;
+selectFilterType.addEventListener("change", (e) => {
+  const selectFilterTypeValue = e.target.value;
   applyFilter("type", selectFilterTypeValue);
 });
-selectFilterResistant.addEventListener("change", () => {
-  const selectFilterResistantValue = selectFilterResistant.value;
+selectFilterResistant.addEventListener("change", (e) => {
+  const selectFilterResistantValue = e.target.value;
   applyFilter("resistant", selectFilterResistantValue);
 });
-selectFilterWeakness.addEventListener("change", () => {
-  const selectFilterWeaknessValue= selectFilterWeakness.value;
+selectFilterWeakness.addEventListener("change", (e) => {
+  const selectFilterWeaknessValue= e.target.value;
   applyFilter("weaknesses", selectFilterWeaknessValue);
 });
 
@@ -135,7 +135,6 @@ function cleanAll() {
   selectFilterType.value = "all"
   selectFilterResistant.value = "no-filters"
   selectFilterWeakness.value = "no-filters"
-  selectSort.value = "option-order-by"
   selectSort.value = "asc"
   delete filteredResults.type
   delete filteredResults.resistant
