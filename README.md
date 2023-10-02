@@ -23,9 +23,17 @@ de tomar buenas decisiones al jugar Pokémon Go y otros juegos de la franquicia.
 
 Para el diseño de la interfaz de usuaria el equipo se basó en la elaboración de historias de usuaria, a partir de conversaciones con jugador@s de Pokémon Go y de los resultados de la investigación previa. Con estas historias se determinaron las características más importantes para l@s jugador@s y los filtros más útiles. Se llegó al siguiente prototipo de baja fidelidad:
 
-![Prot 1](Prototipo de baja fidelidad pantalla 1 y pantalla de opciones de filtro.png)
+![Prot 1](https://github.com/PenLogos/DEV011-data-lovers/blob/main/Prototipo%20de%20baja%20fidelidad%20pantalla%201%20y%20pantalla%20de%20opciones%20de%20filtro.png)
+![Prot 2](https://github.com/PenLogos/DEV011-data-lovers/blob/main/Prototipo%20(bf)%20segunda%20pantalla.png)
+
+Tras elaborar este prototipo, se procedió al diseño del de alta, pensando en la paleta de colores de Pokémon y en una interfaz sencilla y cómoda para la usuaria. Se aplicó mobile First.
+
+![Prot HF, imagen](https://github.com/PenLogos/DEV011-data-lovers/blob/main/Prot.%20alta.png)
+![Prot HF](https://www.figma.com/proto/g2wBlwyuuT77O7nmwL8O1r/Prototipo-de-alta-fidelidad?type=design&node-id=3-2&t=xNE7sVgTScXBJgoy-0&scaling=scale-down&page-id=0%3A1&starting-point-node-id=3%3A2)
 
 ## 3. Funcionalidades
+
+https://www.figma.com/proto/g2wBlwyuuT77O7nmwL8O1r/Prototipo-de-alta-fidelidad?type=design&node-id=3-2&t=xNE7sVgTScXBJgoy-0&scaling=scale-down&page-id=0%3A1&starting-point-node-id=3%3A2
 
 Como entregable final tendrás una página web que permita **visualizar la data,
 filtrarla, ordenarla y calcular alguna estadística**.
