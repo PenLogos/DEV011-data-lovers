@@ -121,7 +121,7 @@ const applyOrder = (filteredData, sortedBy, order) => {
 selectSort.addEventListener("change", () => {
   const selectedValue = selectSort.value
   if (selectedValue === "desc") {
-  applyOrder(toOrder, "name", selectedValue)
+    applyOrder(toOrder, "name", selectedValue)
   }
   else {
     applyOrder(toOrder, "name")
