@@ -1,8 +1,6 @@
 // estas funciones son de ejemplo
 export const renderItems = (pokemon) => {
   const cardContainer = document.querySelector(".contenedor");
-  // const ul = document.createElement("ul")
-  console.log('===>>>', cardContainer);
   const li = document.createElement("li");
   cardContainer.appendChild(li);
   li.setAttribute("itemscope", "");
@@ -37,10 +35,18 @@ export const renderItems = (pokemon) => {
   li.appendChild(pokemonRegion);
   pokemonRegion.setAttribute("itemprop", "name-region");
   pokemonRegion.innerHTML = `Región: ${pokemon.generation.name}`;
+  // const pokemonResistant = document.createElement("dd");
+  // li.appendChild(pokemonResistant);
+  // pokemonResistant.setAttribute("itemprop", "resistant");
+  // pokemonResistant.innerHTML = `Fortalezas: ${pokemon.resistant}`;
+  const pokemonResistantTag = document.createElement("dd");
+  li.appendChild(pokemonResistantTag);
+  pokemonResistantTag.setAttribute("class", "resistant-tag");
+  pokemonResistantTag.innerHTML = 'Fortalezas: ';
   const pokemonResistant = document.createElement("dd");
   li.appendChild(pokemonResistant);
   pokemonResistant.setAttribute("itemprop", "resistant");
-  pokemonResistant.innerHTML = `Fortalezas: ${pokemon.resistant}`;
+  pokemonResistant.innerHTML = pokemon.resistant;
   const pokemonWeaknesses = document.createElement("dd");
   li.appendChild(pokemonWeaknesses);
   pokemonWeaknesses.setAttribute("itemprop", "weaknesses");

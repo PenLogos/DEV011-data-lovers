@@ -102,10 +102,6 @@ label[for="change-order-desc"] {
   background-color: #17ef53;
 }
 
-section{
-  overflow-x: hidden;
-  }
-
 ul {
   list-style: none;
   display: flex;
