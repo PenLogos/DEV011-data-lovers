@@ -23,6 +23,7 @@ const cleanArrayTypeValues = arrayTypeValues.filter((value, index, self) => {
   return self.indexOf(value) === index;
 });
 
+
 function createOption(value) {
   const optionType = document.createElement("option");
   selectFilterType.appendChild(optionType);
@@ -40,16 +41,17 @@ function createOption(value) {
   return optionType, optionResistant, optionWeakness
 }
 
+cleanArrayTypeValues.forEach(createOption);
+
 selectPokemon.forEach(renderItems);
 
-cleanArrayTypeValues.forEach(createOption);
+
 
 const filteredResults = {
   type: [],
   resistant: [],
   weaknesses: [],
 };
-
 
 
 const applyFilter = (filterName, selectedValue) => {
@@ -65,14 +67,14 @@ const applyFilter = (filterName, selectedValue) => {
     }
   }
   if (filterIntersection.length > 0) {
-    return filterIntersection.forEach(renderItems),
+    filterIntersection.forEach(renderItems),
     computeStatsP.innerHTML = `Tasa de aparición media ${computeStats(filterIntersection, "spawn-chance")}`;
   } else {
     const noResults = document.createElement("p");
     cardContainer.appendChild(noResults);
     noResults.setAttribute("class", "message");
     noResults.innerHTML = "No hay pokemones así por atrapar, sigue buscando";
-    return computeStatsP.innerHTML = "";
+    computeStatsP.innerHTML = "";
   }
 };
 
@@ -90,7 +92,7 @@ selectFilterWeakness.addEventListener("change", (e) => {
 });
 
 selectFilterName.addEventListener("change", () => {
-  const resultFilterName = dataFilter(selectPokemon, "name", selectFilterName.value);
+  const resultFilterName = dataFilter(selectPokemon, "name", selectFilterName.value.toLowerCase());
   cardContainer.innerHTML = "";
   if (resultFilterName.length > 0) {
     resultFilterName.forEach(renderItems);
@@ -135,7 +137,7 @@ function cleanAll() {
   selectFilterType.value = "all"
   selectFilterResistant.value = "no-filters"
   selectFilterWeakness.value = "no-filters"
-  selectSort.value = "asc"
+  selectSort.value = "asc-desc"
   delete filteredResults.type
   delete filteredResults.resistant
   delete filteredResults.weaknesses

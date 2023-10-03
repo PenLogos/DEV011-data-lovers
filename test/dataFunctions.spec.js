@@ -9,7 +9,7 @@ import { sortedPokemonDesc } from "./data.js";
 const desc = "desc"
 
 describe("dataFilter", () => {
-  it('debería retornar bulbasaur, ivysaur y venasaur para la selección "grass"', () => {
+  it('debería retornar los objetos con los valores bulbasaur, ivysaur y venasaur en la propiedad name para la selección "grass"', () => {
     const dataFiltered = dataFilter(fakeData['pokemon'], "type", "grass");
     expect(dataFiltered).toStrictEqual(dataGrass['pokemon'])
   });

@@ -83,7 +83,7 @@ export const renderItems = (pokemon) => {
     pokemon.evolution &&
     Array.isArray(pokemon.evolution["prev-evolution"]) &&
     pokemon.evolution["prev-evolution"][0] &&
-    pokemon.evolution["next-evolution"] && ["prev-evolution"]
+    pokemon.evolution["next-evolution"] 
   ) {
     evolution1.innerHTML = `Preevolución: ${pokemon.evolution["prev-evolution"][0].name}`;
     evolution2.innerHTML = `Evolución: ${pokemon.evolution["next-evolution"][0].name}`;
