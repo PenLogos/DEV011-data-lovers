@@ -4,6 +4,7 @@
 * [1. Definición del producto](#1-Definición-del-producto)
 * [2. Diseño de la interfaz de usuaria](#2-Diseño-de-la-interfaz-de-usuaria)
 * [3. Testeos de usabilidad](#3-Testeos-de-usabilidad)
+* [4. Mira la web de PokeFindX](#4-Mira-la-web-de-PokeFindX)
 
 ***
 
@@ -34,3 +35,7 @@ Estas observaciones se tomaron en cuenta para la elaboración de la interfaz en 
 
 ![Interfaz-celular](https://github.com/PenLogos/DEV011-data-lovers/blob/main/App%20on%20mobile.jpg)
 ![Interfaz-pc](https://github.com/PenLogos/DEV011-data-lovers/blob/main/Interfaz%20computador.png)
+
+## 4. Mira la web de PokeFindX
+
+![PokeFindX](https://penlogos.github.io/DEV011-data-lovers/)
