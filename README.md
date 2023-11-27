@@ -38,4 +38,4 @@ Estas observaciones se tomaron en cuenta para la elaboración de la interfaz en 
 
 ## 4. Mira la web de PokeFindX
 
-![PokeFindX](https://penlogos.github.io/DEV011-data-lovers/)
+[PokeFindX](https://penlogos.github.io/DEV011-data-lovers/)
